@@ -21,17 +21,36 @@ $ git log
 $ git reflog
 $ git ls-files
 $ git remote -v
+$ gitk --all
 ```
+- 将文件加入暂存区
 ```
 $ git add 文件名 // 将某个文件存入暂存区
 $ git add b c //把b和c存入暂存区
 $ git add . // 将所有文件提交到暂存区
-$ git add -p 文件名 // 一个文件分多次提交
-$ git stash -u -k // 提交部分文件内容 到仓库
+```
+- 提交
+```
 $ git commit -m "提交的备注信息" 
 $ git commit -am "备注信息" 
-
 $ git commit --amend -m "提交信息" // 回撤上一次提交并与本次工作区一起提交
+```
+- 打标签
+```
+$ git tag commitid tagname
+```
+- 打包
+```
+$ git archive commitidORtagname -o repo.tar
+```
+- 分支
+```
+$ git branch 
+$ git checkout branchname
+$ git checkout branchname f.txt  # 检出分支branchname的f.txt文件到当前分支
+```
+- 回撤
+```
 $ git reset HEAD~2 --hard // 回撤2步
 $ git reset --files // 从仓库回撤到暂存区
 $ git reset HEAD // 回撤暂存区内容到工作目录
@@ -39,11 +58,6 @@ $ git reset HEAD --soft 回撤提交到暂存区
 $ git reset HEAD --hard // 回撤提交 放弃变更 (慎用)
 $ git reset HEAD^  // 回撤仓库最后一次提交
 $ git reset --hard commitid // 回撤到该次提交id的位置
-$ git push -f -u origin 分支名 所有内容都回撤完了 将回撤后的操作强制推送到远程分支
-$ git cherry-pick commitid // 提取某次提交到当前分支
-$ git checkout branchname f.txt  # 检出分支branchname的f.txt文件到当前分支
-$ git tag commitid tagname
-$ git archive commitidORtagname -o repo.tar
 ```
 ### 解决git status不能显示中文
 - 原因  
