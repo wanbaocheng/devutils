@@ -4,7 +4,7 @@
 $ git clone 地址  # 克隆远程仓库
 $ git clone -b 分支名 地址  # 克隆分支的代码到本地
 ```
-- 初始化本地库
+- 初始化库
 ```
 $ git init  # 初始化 在工作路径上创建主分支
 $ git init --bare
@@ -70,6 +70,7 @@ $ git status  # 查看状态
 $ git log
 $ git reflog
 $ git ls-files
+$ git ls-files|awk 'system("ls -l "$0)' |awk '{count++; sum+=$5} {print "Count:" count,"Sum: " sum" bytes"}'\
 $ gitk --all
 ```
 - 将文件加入暂存区
