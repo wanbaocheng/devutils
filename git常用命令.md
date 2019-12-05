@@ -9,25 +9,35 @@ $ git clone -b 分支名 地址  # 克隆分支的代码到本地
 $ git init  # 初始化 在工作路径上创建主分支
 $ git init --bare
 ```
-- 设置远程库
-```
-$ git remote add mathsai root@mathsai.cn:/root/repos/urdf  # 添加其名字为mathsai的远程库，并为其指定地址
-$ git remote set-url --add origin root@mathsai.cn:/root/repos/urdf  # 在远程库origin中添加新地址
-```
-- 查看远程库
-```
-$ git remote -v
-```
+- 远程库
+  - 创建
+  ```
+  $ git remote add mathsai root@mathsai.cn:/root/repos/urdf  # 添加其名字为mathsai的远程库，并为其指定地址
+  $ git remote set-url --add origin root@mathsai.cn:/root/repos/urdf  # 在远程库origin中添加新地址
+  ```
+  - 查看
+  ```
+  $ git remote -v
+  ```
+  - 删除
+  ```
+  $ git remote remove rrepo  # 删除远程库 rrepo
+  ```
 - 分支
   - 查看  
   ```
   $ git branch -a  # 查看所有分支
+  $ git branch  # 查看本地分支
   $ git branch -r  # 查看远程分支
   $ git branch -vv  # 查看本地分支及其上游分支
   ```
-  - 创建
+  - 创建本地分支
   ```
   $ git checkout -b bname  # 创建本地分支bname，检出当前分支的到该分支，并切换到它
+  ```
+  - 创建远程分支
+  ```
+  $ git push rrepo bname  # 在远程仓库 rrepo 中创建分支 bname，并把本地分支 bname 的内容推上去
   ```
   - 切换或检出
   ```
@@ -48,7 +58,11 @@ $ git remote -v
   ```
   - 删除本地分支
   ```
-  $ git branch -d bname
+  $ git branch -d bname  # 删除本地分支 bname
+  ```
+  - 删除远程分支
+  ```
+  $ git branch -r d rbname  # 删除远程分支 rbname
   ```
 - 查看本地库的相关信息
 ```
