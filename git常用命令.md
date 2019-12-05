@@ -59,6 +59,23 @@ $ git reset HEAD --hard // 回撤提交 放弃变更 (慎用)
 $ git reset HEAD^  // 回撤仓库最后一次提交
 $ git reset --hard commitid // 回撤到该次提交id的位置
 ```
+- clone远程库所有分支  
+```
+$ git clone http://myrepo.xxx.com/project/.git ,这样在git_work目录下得到一个project子目录
+$ cd project
+$ git branch -a
+```
+列出所有分支名称如下：  
+```
+remotes/origin/dev  
+remotes/origin/release  
+```
+根据如上信息按下述命令逐个获取每个分支：
+```
+$ git checkout -b dev origin/dev  # 作用是checkout远程的dev分支，在本地起名为dev分支，并切换到本地的dev分支
+$ git checkout -b release origin/release  # 作用参见上一步解释
+``` 
+
 ### 解决git status不能显示中文
 - 原因  
   在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。
