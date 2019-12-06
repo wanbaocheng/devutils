@@ -104,6 +104,15 @@ $ git reset HEAD --hard // 回撤提交 放弃变更 (慎用)
 $ git reset HEAD^  // 回撤仓库最后一次提交
 $ git reset --hard commitid // 回撤到该次提交id的位置
 ```
+### 从仓库中彻底删除文件或文件夹
+```
+$ git filter-branch --force --index-filter \
+'git rm -r --cached --ignore-unmatch 文件夹或文件名' \
+--prune-empty --tag-name-filter cat -- --all
+$ rm -rf .git/refs/original/
+$ git reflog expire --expire=now --all
+$ git gc --prune=now
+```
 
 ### 解决git status不能显示中文
 - 原因  
