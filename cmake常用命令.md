@@ -6,4 +6,9 @@ add_executable
 add_library
 target_link_libraries: PUBLIC, INTERFACE, PRIVATE
 BUILD_SHARED_LIBS: YES, NO
+find_package
+include_directories
+PkgConfig
+pkg_search_module
+link_directories
 ```
