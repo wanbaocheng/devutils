@@ -45,7 +45,8 @@
   ```
   - 切换或检出
   ```
-  $ git checkout bname  # 切换到本地分支 bname
+  $ git checkout bname  # 如果存在本地分支 bname，则切换到该分支，否则检查远程库中有无分支 bname，
+                        # 若有，则创建同名本地分支，并检出远程分支到本地，否则输出失败信息
   $ git checkout bname f.txt  # 检出分支 bname 当前提交中的f.txt文件到当前分支
   $ git checkout commitid f.txt  # 检出提交commitid的f.txt文件到当前分支
   ```
