@@ -78,6 +78,8 @@ $ gitk --all
   $ git reflog
   $ git ls-files
   $ git ls-files|awk 'system("ls -l "$0)' |awk '{count++; sum+=$5} {print "Count:" count,"Sum: " sum" bytes"}'\
+  $ git status --untracked-files=all
+  $ git ls-files --others --exclude-standard
   ```
   - 将文件加入暂存区
   ```
