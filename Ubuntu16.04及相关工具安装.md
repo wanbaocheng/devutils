@@ -219,9 +219,8 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   - 安装npm
   ```
   $ sudo apt install npm
-  ```
-  - 安装asar
-  ```
+  $ sudo npm install n -g
+  $ sudo n stable
   $ sudo npm install -g asar
   ```
   注：这一步有可能会报错：“/usr/bin/env: node: 没有那个文件或目录”，可以
