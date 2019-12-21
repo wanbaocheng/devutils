@@ -199,6 +199,56 @@ sudo apt-get install libpcl-dev
 ```
 或者到[官网](https://github.com/PointCloudLibrary/pcl/releases/tag/pcl-1.9.1) 下载PCL源码，然后编译。可参考[PCL1.8+Ubuntu16.04安装详解](https://blog.csdn.net/dantengc/article/details/78446600)
 
+## [starUML](http://staruml.io/)
+- 下载软件  
+到[这里](http://staruml.io/download/releases/StarUML-3.2.1.AppImage)下载
+- 解压缩  
+```
+$ chmod +x StarUML-3.0.1-x86_64.AppImage
+$ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
+```
+得到“squashfs-root”文件夹
+- 准备解压缩“app.asar”
+  - 安装npm
+  ```
+  $ sudo apt install npm
+  ```
+  - 安装asar
+  ```
+  $ sudo npm install -g asar
+  ```
+  注：这一步有可能会报错：“/usr/bin/env: node: 没有那个文件或目录”，可以
+  ```
+  $ sudo ln -s /usr/bin/nodejs /usr/bin/node
+  ```
+  - 进入“squashfs-root/app/resources/”，解压app.asar
+  ```
+  $ asar extract app.asar app
+  ```
+- 进入“app”目录修改源代码  
+  - 编辑“./src/engine/license-manager.js”  
+  找到checkLicenseValidity () 
+  做如下修改：
+  ```
+  checkLicenseValidity () {
+      this.validate().then(() => {
+        setStatus(this, true)
+      }, () => {
+        // 原来的代码：
+        // setStatus(this, false) 
+        // UnregisteredDialog.showDialog()
+   
+        //修改后的代码
+        setStatus(this, true)
+      })
+    }
+  ```
+  - 重新打包替换原来的app.asar  
+  回到“squashfs-root/app/resources”，执行
+  ```
+  $ asar pack app app.asar
+  ```
+- 运行“squashfs-root/app/staruml”
 ## [CloudCompare](https://www.danielgm.net/cc/)
 两种方式：
 - 使用 snap  
