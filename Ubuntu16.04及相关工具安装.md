@@ -227,7 +227,7 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   ```
   $ sudo ln -s /usr/bin/nodejs /usr/bin/node
   ```
-  - 进入“squashfs-root/app/resources/”，解压app.asar
+  - 进入“squashfs-root/resources/”，解压app.asar
   ```
   $ asar extract app.asar app
   ```
