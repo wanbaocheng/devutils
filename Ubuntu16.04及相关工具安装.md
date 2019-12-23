@@ -255,6 +255,38 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   $ asar pack app app.asar
   ```
 - 运行“squashfs-root/app/staruml”
+
+## ROS
+- 安装ROS
+  - 更新系统软件库
+  ```
+  $ sudo apt update
+  ```
+  - 安装ROS全功能版
+  ```
+  $ sudo apt install ros-kinetic-desktop-full
+  ```
+  - 查看可使用的包
+  ```
+  $ apt-cache search ros-kinetic
+  ```
+- 初始化ROS
+  - 初始化 rosdep
+  ```
+  $ sudo rosdep init
+  $ rosdep update
+  ```
+  - 然后初始化环境变量（重要）
+  ```
+  $ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+  $ source ~/.bashrc
+  ```
+- 测试ROS
+```
+$ roscore
+$ rviz
+```
+
 ## [CloudCompare](https://www.danielgm.net/cc/)
 两种方式：
 - 使用 snap  
