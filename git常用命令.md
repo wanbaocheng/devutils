@@ -120,6 +120,7 @@ $ git filter-branch --force --index-filter \
 $ rm -rf .git/refs/original/
 $ git reflog expire --expire=now --all
 $ git gc --prune=now
+$ git push --force --all
 ```
 
 ### 解决git status不能显示中文
