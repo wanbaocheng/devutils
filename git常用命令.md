@@ -131,3 +131,17 @@ $ git gc --prune=now
 $ git config --global core.quotepath false
 ```
 其中quotepath表示引用路径，加上--global表示全局配置。
+
+### git diff提示dirty问题
+```shell script
+$ git diff
+```
+输出类似
+```shell script
+-Subproject commit 545qiwukjkdsjf345qjj54555432ksg444jj4467
++Subproject commit 545qiwukjkdsjf345qjj54555432ksg444jj4467-dirty
+```
+解决办法:
+```shell script
+$ git submodule foreach --recursive git checkout .
+```
