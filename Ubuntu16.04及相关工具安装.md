@@ -309,7 +309,12 @@ $ sudo vim /etc/docker/daemon.json # 如果没有就新建
     "registry-mirrors": ["https://cr.console.aliyun.com/"]
 }
 ``` 
-
+## nginx
+```
+$ sudo /usr/local/nginx/sbin/nginx  # 启动nginx
+$ sudo /usr/local/nginx/sbin/nginx -s stop  # 关闭nginx
+$ sudo vim /usr/local/nginx/conf/nginx.conf  # 编辑nginx配置
+```
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
 参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648) 
