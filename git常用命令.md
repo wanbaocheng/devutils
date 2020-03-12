@@ -93,7 +93,7 @@ $ gitk --all
   $ git commit -am "备注信息"
   $ git commit --amend -m "提交信息" // 回撤上一次提交并与本次工作区一起提交
   ```
-  - 打标签
+  - [打标签](https://www.jianshu.com/p/154d58451ef7)
   ```
   $ git tag commitid tagname
   ```
