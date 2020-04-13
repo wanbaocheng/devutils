@@ -320,4 +320,11 @@ $ sudo vim /usr/local/nginx/conf/nginx.conf  # 编辑nginx配置
 ```
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
-参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648) 
+参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648)
+
+## 两文本文件内容比较软件
+```shell script
+$ sudo apt-get update
+$ sudo apt-get install diffuse
+```
+ 
