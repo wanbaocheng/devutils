@@ -259,12 +259,27 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   ```
 - 运行“squashfs-root/app/staruml”
 
-## ROS
-- 安装ROS
+## [ROS](https://www.ros.org/)
+- [安装ROS](https://www.jianshu.com/p/6ae840a94e2f)
+  - 备份原始数据
+  ```shell script
+  $ cd /etc/apt/
+  $ sudo cp sources.list sources.list.bak
+  $ sudo gedit sources.list
+  ```
+  - 添加源
+  ```shell script
+  $ sudo sh -c '. /etc/lsb-release && echo "deb https://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main" > /etc/apt/sources.list.d/ros-latest.list'
+  ```
+  - 设置密钥
+  ```shell script
+  $ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key F42ED6FBAB17C654
+  ```
   - 更新系统软件库
   ```
   $ sudo apt update
   ```
+  注：可能ROS由于公钥更新导致用户该步报错，参见[解决办法](https://blog.csdn.net/asdli/article/details/91978069?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)
   - 安装ROS全功能版
   ```
   $ sudo apt install ros-kinetic-desktop-full
@@ -272,6 +287,10 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   - 查看可使用的包
   ```
   $ apt-cache search ros-kinetic
+  ```
+  - 安装重要插件（可选）
+  ```shell script
+  $ sudo apt install python-rosinstall
   ```
 - 初始化ROS
   - 初始化 rosdep
@@ -285,9 +304,9 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   $ source ~/.bashrc
   ```
 - 测试ROS
-```
+```shell script
 $ roscore
-$ rviz
+$ rviz  # 另启一个终端
 ```
 
 ## [CloudCompare](https://www.danielgm.net/cc/)
