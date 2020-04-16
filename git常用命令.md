@@ -16,8 +16,8 @@
 - 远程库
   - 创建
   ```
-  $ git remote add mathsai root@mathsai.cn:/root/repos/urdf  # 添加其名字为mathsai的远程库，并为其指定地址
-  $ git remote set-url --add origin root@mathsai.cn:/root/repos/urdf  # 在远程库origin中添加新地址
+  $ git remote add mathsai root@IP地址或域名:/root/repos/urdf  # 添加其名字为mathsai的远程库，并为其指定地址
+  $ git remote set-url --add origin root@IP地址或域名:/root/repos/urdf  # 在远程库origin中添加新地址
   ```
   - 查看
   ```
@@ -26,6 +26,7 @@
   - 删除
   ```
   $ git remote remove rrepo  # 删除远程库 rrepo
+  $ git remote set-url --delete origin root@IP地址或域名:/root/repos/urdf  # 在远程库origin中删除地址
   ```
 - 分支
   - 查看  
