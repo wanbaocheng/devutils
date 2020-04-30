@@ -309,6 +309,39 @@ $ roscore
 $ rviz  # 另启一个终端
 ```
 
+- 与vcpkg配合(可选)
+
+在
+rosROOT/kinetic/share/catkin/cmake/toplevel.cmake中找到类似
+```shell script
+if(NOT DEFINED CMAKE_PREFIX_PATH)
+```
+这样的行然后进行修改如下：
+```
+```shell script
+  if(NOT DEFINED CMAKE_PREFIX_PATH)
+    if(NOT "$ENV{CMAKE_PREFIX_PATH}" STREQUAL "")
+      if(NOT WIN32)
+        string(REPLACE ":" ";" CMAKE_PREFIX_PATH $ENV{CMAKE_PREFIX_PATH})
+      else()
+        set(CMAKE_PREFIX_PATH $ENV{CMAKE_PREFIX_PATH})
+      endif()
+    endif()
+  else()
+    if(NOT "$ENV{CMAKE_PREFIX_PATH}" STREQUAL "")
+      if(NOT WIN32)
+        string(REPLACE ":" ";" CMAKE_PREFIX_PATH_TMP $ENV{CMAKE_PREFIX_PATH})
+        list(APPEND CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH_TMP})
+      else()
+        set(CMAKE_PREFIX_PATH $ENV{CMAKE_PREFIX_PATH})
+      endif()
+    endif()
+  endif()
+```
+编译时类似这样
+```shell script
+$ catkin_make -DCMAKE_TOOLCHAIN_FILE=vcpkgROOT/scripts/buildsystems/vcpkg.cmake
+```
 ## [CloudCompare](https://www.danielgm.net/cc/)
 两种方式：
 - 使用 snap  
