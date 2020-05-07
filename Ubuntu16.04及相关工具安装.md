@@ -356,8 +356,9 @@ $ catkin_make -DCMAKE_TOOLCHAIN_FILE=vcpkgROOT/scripts/buildsystems/vcpkg.cmake
 
 拷贝compiledRosPlugins目录下的libsimExtROSInterface.so到根目录（其父目录）
 
-- 执行
+- 启动
 ```shell script
+$ source /opt/ros/kinetic/setup.bash
 $ ./coppeliaSim.sh
 ```
 检查出现如下信息
@@ -365,7 +366,31 @@ $ ./coppeliaSim.sh
 Plugin 'ROSInterface': loading...
 Plugin 'ROSInterface': load succeeded.
 ```
-表明ROSInteface安装成功。
+表明ROSInteface安装成功。 
+
+- 使用示例时遇到的小问题
+
+启动coppeliaSim，点击主菜单 File --> Open scene...，打开Loading scene...对话框，
+选中文件rosInterfaceTopicPublisherAndSubscriber.ttt，点击 Open 按钮，
+然后打开一个新终端，输入
+```shell script
+$ source /opt/ros/kinetic/setup.bash
+$ rosrun image_view image_view image:=/image
+```
+此时屏幕输出如下出错信息
+```shell script
+qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
+This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+ldd platforms/libqxcb.so
+```
+[原因分析](https://blog.csdn.net/lusanshui/article/details/84988017?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-5)：
+
+应用找不到libqxcb.so文件
+
+解决办法：
+```shell script
+$ sudo ln -sf /usr/lib/x86_64-linux-gnu/qt5/plugins/platforms/libqxcb.so /usr/bin/libqxcb.so
+```
 
 ## [ZeroBrane Studio](https://studio.zerobrane.com/)
 - 下载
