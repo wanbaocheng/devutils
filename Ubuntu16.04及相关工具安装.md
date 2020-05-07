@@ -343,7 +343,7 @@ if(NOT DEFINED CMAKE_PREFIX_PATH)
 $ catkin_make -DCMAKE_TOOLCHAIN_FILE=vcpkgROOT/scripts/buildsystems/vcpkg.cmake
 ```
 
-##[CoppeliaSim](https://www.coppeliarobotics.com/)
+## [CoppeliaSim](https://www.coppeliarobotics.com/)
 -  下载
 
 进入https://www.coppeliarobotics.com/ubuntuVersions，选择对应的版本，比如CoppeliaSim Edu, Ubuntu 16.04
