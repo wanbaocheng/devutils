@@ -342,6 +342,31 @@ if(NOT DEFINED CMAKE_PREFIX_PATH)
 ```shell script
 $ catkin_make -DCMAKE_TOOLCHAIN_FILE=vcpkgROOT/scripts/buildsystems/vcpkg.cmake
 ```
+
+##[CoppeliaSim](https://www.coppeliarobotics.com/)
+-  下载
+
+进入https://www.coppeliarobotics.com/ubuntuVersions，选择对应的版本，比如CoppeliaSim Edu, Ubuntu 16.04
+
+- 安装
+
+解压到/opt/v-rep目录下即可
+
+- 安装ROSInterface(便于与ROS的通信，可选)
+
+拷贝compiledRosPlugins目录下的libsimExtROSInterface.so到根目录（其父目录）
+
+- 执行
+```shell script
+$ ./coppeliaSim.sh
+```
+检查出现如下信息
+```shell script
+Plugin 'ROSInterface': loading...
+Plugin 'ROSInterface': load succeeded.
+```
+表明ROSInteface安装成功。
+
 ## [CloudCompare](https://www.danielgm.net/cc/)
 两种方式：
 - 使用 snap  
