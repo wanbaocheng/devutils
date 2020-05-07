@@ -367,6 +367,29 @@ Plugin 'ROSInterface': load succeeded.
 ```
 表明ROSInteface安装成功。
 
+## [ZeroBrane Studio](https://studio.zerobrane.com/)
+- 下载
+
+https://download.zerobrane.com/ZeroBraneStudioEduPack-1.90-linux.sh
+
+- 安装
+```shell script
+$ ./ZeroBraneStudioEduPack-1.90-linux.sh
+```
+- 卸载
+```shell script
+$ zbstudio-uninstall
+```
+- 启动Studio
+```shell script
+$ zbstudio
+```
+
+- 选择lua解释器
+
+主菜单 project --> Lua Interpreter --> Lua 5.3
+
+
 ## [CloudCompare](https://www.danielgm.net/cc/)
 两种方式：
 - 使用 snap  
