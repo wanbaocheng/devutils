@@ -144,8 +144,48 @@ curl -sLf https://spacevim.org/install.sh | bash
 curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
 ```
 参见 https://blog.csdn.net/weixin_34260991/article/details/87041702
-## 安装python环境
-到官网下载[Linux版](https://www.python.org/downloads/source/)，可参考[安装过程](https://www.jianshu.com/p/6059f7fc2cd0)，可能需要改变python的[符号链接](https://www.cnblogs.com/travellife/p/4064183.html)，最后安装[虚拟环境virtualenv](https://www.cnblogs.com/zh605929205/p/7705192.html)，也可采用python标准库的[venv](https://zhuanlan.zhihu.com/p/81568689)。
+## 安装python
+- 下载
+
+到官网下载[Linux版](https://www.python.org/downloads/source/)
+
+- 安装一些依赖模块
+```shell script
+$ sudo apt-get install build-essential checkinstall
+$ sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+```
+- 编译
+
+进入python的根目录，然后
+```shell script
+$ sudo ./configure --enable-optimizations --enable-shared CFLAGS=-fPIC
+```
+其中加上--enable-shared和-fPIC，可以将python的动态链接库编译出来，否则只有python3.xm.a这样的文件。
+默认安装目录是/usr/local, 例如可以通过添加--prefix=/opt/python改变为/opt/python。
+
+- 安装
+```shell script
+$ sudo make altinstall
+```
+
+-- 添加lib到路径上
+
+方法一：
+```shell script
+$ vim ~/.bashrc
+```
+在文件末尾添加一行
+```shell script
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+```
+方法二：
+
+把/usr/local/lib下面的.so文件拷贝到/usr/lib目录下
+
+
+注：参考[安装过程](https://www.jianshu.com/p/6059f7fc2cd0)，可能需要改变python的[符号链接](https://www.cnblogs.com/travellife/p/4064183.html)，最后安装[虚拟环境virtualenv](https://www.cnblogs.com/zh605929205/p/7705192.html)，也可采用python标准库的[venv](https://zhuanlan.zhihu.com/p/81568689)。
+
 ## anaconda3
 到官网下载 [Linux版](https://www.anaconda.com/distribution/)，[Anaconda installer archive](https://repo.anaconda.com/archive/)，[anaconda与python版本对应关系](https://blog.csdn.net/yuejisuo1948/article/details/81043823)，比如文件名为Anaconda3-XXXX.XX-Linux-x86_64.sh，拷贝到 /opt 目录下，然后在命令行执行
 ```
