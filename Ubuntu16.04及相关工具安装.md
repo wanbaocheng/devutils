@@ -20,6 +20,20 @@ $ sudo service lightdm stop
 $ sudo apt install --reinstall ubuntu-desktop
 $ sudo service lightdm start
 ```
+
+系统进入登录界面，但键盘和鼠标没有反应：
+
+- 进入grub然后选择高级模式进入recover mode
+- 选择 enable network
+- 进入root shell，输入
+```shell script
+$ sudo apt install xserver-xorg-input-all
+```
+- 重启
+```shell script
+$ reboot
+```
+
 # Nvidia显卡驱动安装
 ### 1. 下载NVIDIA官方驱动
 查看当前电脑的显卡型号
