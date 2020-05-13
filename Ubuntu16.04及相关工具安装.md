@@ -497,6 +497,18 @@ $ sudo /usr/local/nginx/sbin/nginx  # 启动nginx
 $ sudo /usr/local/nginx/sbin/nginx -s stop  # 关闭nginx
 $ sudo vim /usr/local/nginx/conf/nginx.conf  # 编辑nginx配置
 ```
+
+## ssh
+在终端中远程登录服务器后，长时间没有交互会导致服务器断链，解决办法：
+```shell script
+$ vim ~/.ssh/config
+```
+输入
+```shell script
+ServerAliveInterval 60
+```
+然后重新打开终端即可。
+
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
 参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648)
