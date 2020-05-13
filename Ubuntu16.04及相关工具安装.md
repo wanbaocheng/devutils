@@ -167,7 +167,7 @@ curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
 ```shell script
 $ sudo apt-get install build-essential checkinstall
 $ sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev \
-    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev liblzma-dev
 ```
 - 编译
 
@@ -183,7 +183,7 @@ $ sudo ./configure --enable-optimizations --enable-shared CFLAGS=-fPIC
 $ sudo make altinstall
 ```
 
--- 添加lib到路径上
+- 添加lib到路径上
 
 方法一：
 ```shell script
