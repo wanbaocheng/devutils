@@ -8,7 +8,7 @@ $ sudo docker version
 ```shell script
 $ sudo docker image ls
 $ sudo docker images
-$ sudo docker search ubuntu
+$ sudo docker search 
 ```
 - 拉取镜像
 ```shell script
@@ -39,6 +39,8 @@ $ sudo docker load -i image_name.tar
 ```shell script
 $ sudo docker container ls
 $ sudo docker container ls -a
+$ sudo docker container ps -aq
+$ sudo docker ps -aq
 ```
 - 创建容器
 ```shell script
@@ -64,11 +66,13 @@ $ sudo docker run -it --name bfe_dis -h BFE --privileged -v /tmp/.X11-unix:/tmp/
 $ sudo docker container stop mycudaNo
 $ sudo docker container stop mycudaYes
 $ sudo docker container stop $(sudo docker ps -a | grep "Created" | awk '{print $1 }') 
+$ sudo docker stop $(sudo docker ps -aq) # 停止所有容器 
 ```
 - 删除容器  
 ```shell script
 $ sudo docker container rm $(sudo docker ps -a | grep "Created" | awk '{print $1 }') 
 $ sudo docker container rm $(sudo docker ps -a | grep "Exited" | awk '{print $1 }') 
+$ sudo docker rm $(sudo docker ps -aq) # 删除所有容器 
 ```
 - 在运行的容器中执行命令
 ```shell script
