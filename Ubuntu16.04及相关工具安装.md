@@ -513,9 +513,9 @@ ServerAliveInterval 60
 - 方法二（服务器）  
 修改root 目录下的.bash_profile文件，加上
 ```shell script
-export TMOUT=86400
+export TMOUT=86400  # 以秒为单位
 ```
-注意是以秒为单位。
+注意设置完成后，要退出ssh远程连接，再次登录后才可以生效，因为要再读取一次.bash_profile文件。
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
 参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648)
