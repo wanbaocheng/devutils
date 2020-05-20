@@ -499,7 +499,8 @@ $ sudo vim /usr/local/nginx/conf/nginx.conf  # 编辑nginx配置
 ```
 
 ## ssh
-在终端中远程登录服务器后，长时间没有交互会导致服务器断链，解决办法：
+在终端中远程登录服务器后，长时间没有交互会导致服务器断链，解决办法有两种：  
+- 方法一（本地）  
 ```shell script
 $ vim ~/.ssh/config
 ```
@@ -509,6 +510,12 @@ ServerAliveInterval 60
 ```
 然后重新打开终端即可。
 
+- 方法二（服务器）  
+修改root 目录下的.bash_profile文件，加上
+```shell script
+export TMOUT=86400
+```
+注意是以秒为单位。
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
 参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648)
