@@ -106,6 +106,12 @@ sudo gedit /etc/inputrc
 "\e[B": history-search-forward
 ```
 存盘即可。
+
+调整history记录数目，打开~/.bashrc，在末尾输入
+```
+export HISTSIZE=20000
+```
+即可。
 # 浏览器
 ### google chrome
 用百度搜索
