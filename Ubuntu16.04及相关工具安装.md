@@ -565,7 +565,7 @@ $ brew install tmux
   ```
   保存好后，在tmux的任意窗口按ctrl+b及大写的I，即可完成下载安装。
   
-  - 基本使用方法  
+- 基本使用方法  
   参见：  [Tmux 使用教程](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
