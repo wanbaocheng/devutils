@@ -522,6 +522,51 @@ ServerAliveInterval 60
 export TMOUT=86400  # 以秒为单位
 ```
 注意设置完成后，要退出ssh远程连接，再次登录后才可以生效，因为要再读取一次.bash_profile文件。
+
+## tmux
+- 安装  
+```shell script
+# Ubuntu 或 Debian
+$ sudo apt-get install tmux
+
+# CentOS 或 Fedora
+$ sudo yum install tmux
+
+# Mac
+$ brew install tmux
+```
+- [tmux持久保存session](https://segmentfault.com/a/1190000015143625)  
+  - 安装插件管理器TPM
+  ```shell script
+  # 把管理器文件安装到`~/.tmux/plugins/tpm`之下 此前这些目录是不存在的
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  # 新建配置文件
+  touch ~/.tmux.conf
+  vim ~/.tmux.conf
+  # 将下面内容复制到`~/.tmux.conf`
+  # List of plugins
+  set -g @plugin 'tmux-plugins/tpm'
+  set -g @plugin 'tmux-plugins/tmux-sensible'
+  # Other examples:
+  # set -g @plugin 'github_username/plugin_name'
+  # set -g @plugin 'git@github.com/user/plugin'
+  # set -g @plugin 'git@bitbucket.com/user/plugin'
+  # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+  run '~/.tmux/plugins/tpm/tpm' 
+
+  # 在tmux运行的时候，找到任意窗口输入下面这个完成安装管理器：
+  tmux source ~/.tmux.conf
+  ```
+  - 安装tmux-resurrect插件  
+  由于tmux不能持久保存session的特性，我们需要安装这个插件来将session的设置完全保存到本地，然后重启后也能够快速恢复窗口等设置的内容。
+首先在~/.tmux.conf文件的List of plugins部分加入这句话：
+  ```shell script
+  set -g @plugin 'tmux-plugins/tmux-resurrect'
+  ```
+  保存好后，在tmux的任意窗口按ctrl+b及大写的I，即可完成下载安装。
+  
+  - 基本使用方法  
+  参见：  [Tmux 使用教程](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
 参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648)
