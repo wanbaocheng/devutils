@@ -603,7 +603,6 @@ http {
 }
 ```
 [防火墙和端口](https://blog.csdn.net/weixin_38750084/article/details/90387056)
-以下假设IP地址是12.34.56.78
 ```shell script
 $ sudo systemctl status firewalld   # 防火墙的状态
 $ sudo firewall-cmd --list-ports    # 当前打开的端口，如果没有则无任何输出
