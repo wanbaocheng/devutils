@@ -497,11 +497,110 @@ $ sudo vim /etc/docker/daemon.json # 如果没有就新建
     "registry-mirrors": ["https://cr.console.aliyun.com/"]
 }
 ``` 
-## nginx
+## [nginx](https://www.jianshu.com/p/d5114a2a2052)
 ```
-$ sudo /usr/local/nginx/sbin/nginx  # 启动nginx
-$ sudo /usr/local/nginx/sbin/nginx -s stop  # 关闭nginx
+$ cd /opt
+$ sudo wget http://nginx.org/download/nginx-1.8.0.tar.gz
+$ sudo tar -zxvf nginx-1.8.0.tar.gz
+$ cd nginx-1.8.0  
+$ sudo ./configure --prefix=/usr/local/nginx  #这一步需要按需要添加编译参数，如下
+$ sudo make
+$ sudo make install
+
+$ sudo /usr/local/nginx/sbin/nginx -t        # 测试nginx
+$ sudo /usr/local/nginx/sbin/nginx           # 启动nginx
+$ sudo /usr/local/nginx/sbin/nginx -s stop   # 关闭nginx
 $ sudo vim /usr/local/nginx/conf/nginx.conf  # 编辑nginx配置
+```
+配置示例：
+```shell script
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #access_log  logs/access.log  main;
+    client_max_body_size 4096M;
+    sendfile on;
+    keepalive_timeout 5400;
+    #tcp_nopush     on;
+    #gzip  on;
+
+    upstream notebook {
+        server localhost:8888;
+    }
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+    }
+
+    upstream aTry {
+        server 127.0.0.1:8090;
+    }
+    server {
+        listen       80;
+        server_name  IP地址   # 用实际IP地址替换;
+
+        location / {
+            proxy_pass http://aTry;
+        }
+        location /bfe {
+                proxy_pass            http://notebook;
+                proxy_set_header      Host $host;
+        }
+
+        location ~ /api/kernels/ {
+                proxy_pass            http://notebook;
+                proxy_set_header      Host $host;
+                proxy_http_version    1.1;
+                proxy_set_header      Upgrade "websocket";
+                proxy_set_header      Connection "Upgrade";
+                proxy_read_timeout    86400;
+        }
+        location ~ /terminals/ {
+                proxy_pass            http://notebook;
+                proxy_set_header      Host $host;
+                proxy_http_version    1.1;
+                proxy_set_header      Upgrade "websocket";
+                proxy_set_header      Connection "Upgrade";
+                proxy_read_timeout    86400;
+        }
+   }
+}
 ```
 [防火墙和端口](https://blog.csdn.net/weixin_38750084/article/details/90387056)
 以下假设IP地址是12.34.56.78
