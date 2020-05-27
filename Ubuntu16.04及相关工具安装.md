@@ -503,6 +503,17 @@ $ sudo /usr/local/nginx/sbin/nginx  # 启动nginx
 $ sudo /usr/local/nginx/sbin/nginx -s stop  # 关闭nginx
 $ sudo vim /usr/local/nginx/conf/nginx.conf  # 编辑nginx配置
 ```
+[防火墙和端口](https://blog.csdn.net/weixin_38750084/article/details/90387056)
+以下假设IP地址是12.34.56.78
+```shell script
+$ sudo systemctl status firewalld   # 防火墙的状态
+$ sudo firewall-cmd --list-ports    # 当前打开的端口，如果没有则无任何输出
+$ sudo systemctl start firewalld    # 启动防火墙
+$ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent   # 开启80端口
+$ sudo firewall-cmd --reload        # 重启防火墙，注意为了使新开启的端口生效必须执行该操作
+$ ping IP地址                       # 是否能链接到IP地址对应的服务器
+$ telnet IP地址 80                  # 测试IP地址对应的服务器的80端口是否开启
+```
 
 ## ssh
 在终端中远程登录服务器后，长时间没有交互会导致服务器断链，解决办法有两种：  
