@@ -95,7 +95,17 @@ Ctrl + Alt + F7
 ```
 nvidia-smi
 ```
-参考：https://blog.csdn.net/wf19930209/article/details/81877822
+参考：https://blog.csdn.net/wf19930209/article/details/81877822  
+[centos系统上的安装](https://www.iemblog.com/?p=1295&lang=zh)（在centos7.2远程服务器上实际安装）
+```shell script
+$ sudo yum install kernel-devel -y  # 如果没有安装在安装驱动时会提示
+$ sudo ./NVIDIA-Linux-x86_64-430.40.run -k $(uname -r)
+```
+nvidia-smi命令执行较慢的解决方法：
+```shell script
+$ sudo nvidia-persistenced --persistence-mode
+```
+
 # 终端
 在终端中根据当前输入的部分命令字符按向上或向下键以进行向前或向后的历史命令过滤查找，输入
 ```
