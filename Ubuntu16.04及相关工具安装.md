@@ -180,12 +180,27 @@ curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
 
 到官网下载[Linux版](https://www.python.org/downloads/source/)
 
-- 安装一些依赖模块
-```shell script
-$ sudo apt-get install build-essential checkinstall
-$ sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+- 安装一些依赖模块  
+  - ubuntu系统  
+  ```shell script
+  $ sudo apt-get install build-essential checkinstall
+  $ sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev \
     libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev liblzma-dev
-```
+  ```
+  - [centos系统](https://segmentfault.com/a/1190000009922582/)  
+  ```shell script
+  $ sudo yum install bzip2-devel     # 解决 import bz2 报错
+  $ sudo yum install ncurses-devel   # 解决 import curses 报错
+  $ sudo yum install sqlite-devel    # 解决 import sqlite3 报错
+  $ sudo yum install gdbm-devel      # 解决 _dbm _gdbm 缺失提醒
+  $ sudo yum install xz-devel        # 解决 _lzma 缺失提醒
+  $ sudo yum install tk-devel        # 解决 _tkinter 缺失提醒
+  $ sudo yum install readline-devel  # 解决 readline 缺失提醒及方向键行为非预期的问题
+  ```
+  或者一次性安装上述所有包
+  ```shell script
+  $ sudo yum install bzip2-devel ncurses-devel sqlite-devel gdbm-devel xz-devel tk-devel readline-devel -y
+  ```
 - 编译
 
 进入python的根目录，然后
