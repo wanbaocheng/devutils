@@ -41,7 +41,7 @@ $ reboot
 $ lshw -numeric -C display  # 或者
 $ lspci | grep -i nviida
 ```
-然后到[官网下载](https://www.nvidia.com/Download/index.aspx?lang=cn)，选择对应型号和版本。
+然后到[官网下载](https://www.nvidia.com/Download/index.aspx?lang=cn)，选择[对应型号和版本](https://envytools.readthedocs.io/en/latest/hw/pciid.html)。
 
 ### 2. 禁用nouveau
 打开编辑配置文件：
