@@ -38,14 +38,15 @@ $ reboot
 ### 1. 下载NVIDIA官方驱动
 查看当前电脑的显卡型号
 ```
-lshw -numeric -C display
+$ lshw -numeric -C display  # 或者
+$ lspci | grep -i nviida
 ```
 然后到[官网下载](https://www.nvidia.com/Download/index.aspx?lang=cn)，选择对应型号和版本。
 
 ### 2. 禁用nouveau
 打开编辑配置文件：
 ```
-sudo gedit /etc/modprobe.d/blacklist.conf
+$ sudo gedit /etc/modprobe.d/blacklist.conf
 ```
 在最后一行添加：
 ```
@@ -53,15 +54,15 @@ blacklist nouveau
 ```
 这一条的含义是禁用nouveau第三方驱动，之后也不需要改回来。由于nouveau是构建在内核中的，所以要执行下面命令生效:
 ```
-sudo update-initramfs -u
+$ sudo update-initramfs -u
 ```
 删除原有的NVIDIA驱动程序（如果有的话）
 ```
-sudo apt-get purge nvidia*
+$ sudo apt-get purge nvidia*
 ```
 重启
 ```
-reboot
+$ reboot
 ```
 
 ### 3. 安装驱动
