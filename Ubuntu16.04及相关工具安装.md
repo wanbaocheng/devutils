@@ -232,6 +232,24 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 注：参考[安装过程](https://www.jianshu.com/p/6059f7fc2cd0)，可能需要改变python的[符号链接](https://www.cnblogs.com/travellife/p/4064183.html)，最后安装[虚拟环境virtualenv](https://www.cnblogs.com/zh605929205/p/7705192.html)，也可采用python标准库的[venv](https://zhuanlan.zhihu.com/p/81568689)。
 
+- 安装一些包及遇到的问题
+  - opencv
+  ```shell script
+  $ pip install opencv-python
+  ```
+  在centos系统下
+  ```shell script、
+  import cv2
+  ```
+  提示
+  ```shell script
+  ImportError: libSM.so.6: cannot open shared object file: No such file or directory
+  ```
+  [解决办法](https://www.cnblogs.com/richerdyoung/p/8458910.html)：
+  ```shell script
+  $ sudo yum install libSM-1.2.2-2.el7.x86_64 --setopt=protected_multilib=false
+  ```
+
 ## anaconda3
 到官网下载 [Linux版](https://www.anaconda.com/distribution/)，[Anaconda installer archive](https://repo.anaconda.com/archive/)，[anaconda与python版本对应关系](https://blog.csdn.net/yuejisuo1948/article/details/81043823)，比如文件名为Anaconda3-XXXX.XX-Linux-x86_64.sh，拷贝到 /opt 目录下，然后在命令行执行
 ```
@@ -253,14 +271,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 trusted-host=mirrors.aliyun.com
 ```
 参考：https://www.cnblogs.com/microman/p/6107879.html
-下载 torch
-```
-pip install torch
-```
-下载 opencv
-```
-pip install opencv-python
-```
+
 ## pycharm
 到官网下载 [Linux 社区版](https://www.jetbrains.com/pycharm/download/#section=linux)，解压到 /opt 目录下即可。
 
