@@ -33,6 +33,7 @@ $ sudo apt install xserver-xorg-input-all
 ```shell script
 $ reboot
 ```
+- [Ubuntu 16.04 创建无线热点](https://blog.csdn.net/ac_dao_di/article/details/71908444)
 
 # Nvidia显卡驱动安装
 ### 1. 下载NVIDIA官方驱动
