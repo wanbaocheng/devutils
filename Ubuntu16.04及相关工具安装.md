@@ -250,6 +250,40 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
   ```shell script
   $ sudo yum install libSM-1.2.2-2.el7.x86_64 --setopt=protected_multilib=false
   ```
+  
+  - matplotlib  
+  在绘图加中文标记时会出现乱码的情况，可通过下面的[方法](https://www.jianshu.com/p/70f01fd5b473)来解决：
+    - 下载中文字体文件(或者从windows中拷贝一个)  
+    下载字体文件[SimHei.ttf](https://www.fontpalace.com/font-download/SimHei/), 
+    - 修改matplotlibrc文件  
+    进入python命令行
+    ```shell script
+    $ python
+    ```  
+    输入
+    ```python
+    import matplotlib
+    matplotlib.matplotlib_fname()
+    ```
+    输出的就是matplotlibrc的绝对路径。用任意的文本编辑器打开该文件，查找以下三行：
+    ```text
+    #axes.unicode_minus : True ## use unicode for the minus symbol
+    #font.family : sans-serif
+    #font.sans-serif : DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+    ```
+    分别修改为
+    ```text
+    axes.unicode_minus : False ## use unicode for the minus symbol
+    font.family : SimHei
+    font.sans-serif : SimHei, DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+    ```
+    第一行,修改True为False,是为了正常显示负号；第二行和第三行是为了使用指定的字体。
+    - 删除缓存
+    ```shell script
+    $ cd ~/.cache/matplotlib
+    $ rm -r *
+    ```  
+    重启python使得设置生效。
 
 ## anaconda3
 到官网下载 [Linux版](https://www.anaconda.com/distribution/)，[Anaconda installer archive](https://repo.anaconda.com/archive/)，[anaconda与python版本对应关系](https://blog.csdn.net/yuejisuo1948/article/details/81043823)，比如文件名为Anaconda3-XXXX.XX-Linux-x86_64.sh，拷贝到 /opt 目录下，然后在命令行执行
