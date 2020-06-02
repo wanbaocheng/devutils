@@ -254,7 +254,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
   - matplotlib  
   在绘图加中文标记时会出现乱码的情况，可通过下面的[方法](https://www.jianshu.com/p/70f01fd5b473)来解决：
     - 下载中文字体文件(或者从windows中拷贝一个)  
-    下载字体文件[SimHei.ttf](https://www.fontpalace.com/font-download/SimHei/), 
+    下载字体文件[SimHei.ttf](https://www.fontpalace.com/font-download/SimHei/)
     - 修改matplotlibrc文件  
     进入python命令行
     ```shell script
@@ -278,6 +278,11 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     font.sans-serif : SimHei, DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
     ```
     第一行,修改True为False,是为了正常显示负号；第二行和第三行是为了使用指定的字体。
+    - 把字体文件拷贝到指定目录  
+    把下载的字体文件拷贝到如下目录中
+    ```text
+    matplotlibrc所在目录/fonts/ttf
+    ```
     - 删除缓存
     ```shell script
     $ cd ~/.cache/matplotlib
