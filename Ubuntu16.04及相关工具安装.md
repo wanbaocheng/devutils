@@ -290,7 +290,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     ```  
     重启python使得设置生效。
 
-## jupyter lab
+## [jupyter lab](https://blog.csdn.net/wwyy2018/article/details/90440088?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase)
 ```
 $ pip install jupyterlab        # 安装jupyterlab
 $ jupyter lab --generate-config 
@@ -301,6 +301,7 @@ c.NotebookApp.allow_remote_access = True
 c.NotebookApp.base_url = '/wbc'
 c.NotebookApp.notebook_dir = '/data0/workspace/wbc'
 c.NotebookApp.port = 8888
+c.NotebookApp.ip='172.17.139.72'     # 内网IP，如果没有127.0.0.1也可以，此时需要用nginx等转一下。如果不设置该项，jupyter能成功运行亦可。
 ```
 然后执行
 ```
