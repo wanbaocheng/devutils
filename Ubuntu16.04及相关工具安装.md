@@ -290,6 +290,23 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     ```  
     重启python使得设置生效。
 
+## jupyter lab
+```
+$ pip install jupyterlab        # 安装jupyterlab
+$ jupyter lab --generate-config 
+```
+编辑上述命令产生的jupyter_notebook_config.py（在目录～/.jupyter/中）,加入如下几项（替换为自己的设置）：
+```
+c.NotebookApp.allow_remote_access = True
+c.NotebookApp.base_url = '/wbc'
+c.NotebookApp.notebook_dir = '/data0/workspace/wbc'
+c.NotebookApp.port = 8888
+```
+然后执行
+```
+$ jupyter lab
+```
+
 ## anaconda3
 到官网下载 [Linux版](https://www.anaconda.com/distribution/)，[Anaconda installer archive](https://repo.anaconda.com/archive/)，[anaconda与python版本对应关系](https://blog.csdn.net/yuejisuo1948/article/details/81043823)，比如文件名为Anaconda3-XXXX.XX-Linux-x86_64.sh，拷贝到 /opt 目录下，然后在命令行执行
 ```
