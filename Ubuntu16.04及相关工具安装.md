@@ -771,6 +771,18 @@ $ brew install tmux
   
 - 基本使用方法  
   参见：  [Tmux 使用教程](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
+  
+## [texmaker](https://blog.csdn.net/baoyongshuai1509/article/details/85115529)
+  - 安装tex live
+  ```shell script
+  $ sudo apt update
+  $ sudo apt install texlive-full
+  ```
+  - 安装 tex Maker
+  ```shell script
+  $ sudo apt-get install texmaker
+  ```
+ 
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
 参考网址[https://blog.csdn.net/xunan003/article/details/79068648](https://blog.csdn.net/xunan003/article/details/79068648)
