@@ -35,6 +35,21 @@ $ reboot
 ```
 - [Ubuntu 16.04 创建无线热点](https://blog.csdn.net/ac_dao_di/article/details/71908444)
 
+- [如何进入grub引导界面](https://jingyan.baidu.com/article/6dad50755e35d1a123e36ecc.html)
+  - 进入ubuntu系统，打开终端，
+  - 修改grub文件
+    ```
+    $ sudo vim /etc/default/grub
+    ```
+    GRUB_TIMEOUT_STYLE=hidden删除或者注释掉,
+    GRUB_CMDLINE_LINUX_DEFAULT修改为"text",
+    GRUB_TIMEOUT=0修改为GRUB_TIMEOUT=10
+  - 更新grub
+    ```
+    $ sudo update-grub
+    ```
+    重启即可进入grub界面。
+
 # Nvidia显卡驱动安装
 ### 1. 下载NVIDIA官方驱动
 查看当前电脑的显卡型号
@@ -792,4 +807,3 @@ $ brew install tmux
 $ sudo apt-get update
 $ sudo apt-get install diffuse
 ```
- 
