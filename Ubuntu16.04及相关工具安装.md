@@ -742,7 +742,7 @@ export TMOUT=86400  # 以秒为单位
 ```
 注意设置完成后，要退出ssh远程连接，再次登录后才可以生效，因为要再读取一次.bash_profile文件。
 
-## [qemu](https://www.jianshu.com/p/db8c20aa6a69)
+## qemu
 - 安装qemu  
 ```shell script
 $ sudo apt update
@@ -760,6 +760,10 @@ $ qemu-system-x86_64 -m 8096 -enable-kvm vm_name.qcow2 -cdrom ./ubuntu-20.04-des
 ```shell script
 $ qemu-system-x86_64 -m 8096 -enable-kvm vm_name.qcow2
 ```
+
+参考:  
+- https://www.jianshu.com/p/db8c20aa6a69  
+- https://blog.gmem.cc/kvm-qemu-study-note
 
 ## tmux
 - 安装  
