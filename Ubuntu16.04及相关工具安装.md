@@ -152,8 +152,15 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 即可。
 # 开发工具
 ## 切换gcc，g++版本
-参见 https://www.jianshu.com/p/f66eed3a3a25,
+- ubuntu
+
+https://www.jianshu.com/p/f66eed3a3a25,  
 https://www.cnblogs.com/weinyzhou/p/4983306.html
+
+- centos
+
+https://tlanyan.me/install-upgrade-gcc-on-centos/
+
 ## snap
 [安装过程](https://docs.snapcraft.io/installing-snap-on-ubuntu)
 ```
