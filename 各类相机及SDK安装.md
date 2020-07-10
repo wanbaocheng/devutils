@@ -5,3 +5,7 @@
 
 ## Astra 相机
 SDK和开发文档：有多种平台多种版本，参见[官网](https://orbbec3d.com/develop/)
+
+## intel realsense 相机  
+参见[官网](https://github.com/IntelRealSense/librealsense), [releases](https://github.com/IntelRealSense/librealsense/releases),
+[源码安装](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
