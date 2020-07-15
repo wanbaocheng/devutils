@@ -1,0 +1,2 @@
+- [跟我一起写Makefile](https://seisman.github.io/how-to-write-makefile/)
+- [跟我一起写Makefile (PDF重制版)](https://github.com/seisman/how-to-write-makefile#%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99makefile-pdf%E9%87%8D%E5%88%B6%E7%89%88)
