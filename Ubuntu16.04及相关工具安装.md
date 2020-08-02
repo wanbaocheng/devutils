@@ -519,6 +519,9 @@ if(NOT DEFINED CMAKE_PREFIX_PATH)
 ```shell script
 $ catkin_make -DCMAKE_TOOLCHAIN_FILE=vcpkgROOT/scripts/buildsystems/vcpkg.cmake
 ```
+- [rqt_plot失败](https://www.cnblogs.com/IT-cute/p/13122280.html)
+
+由于python2.7与matplotlib不兼容的原因。解决办法：采用pyqtgraph替代，从源码安装。
 
 ## [CoppeliaSim](https://www.coppeliarobotics.com/)
 -  下载
