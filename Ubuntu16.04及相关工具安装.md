@@ -523,6 +523,17 @@ $ catkin_make -DCMAKE_TOOLCHAIN_FILE=vcpkgROOT/scripts/buildsystems/vcpkg.cmake
 
 由于python2.7与matplotlib不兼容的原因。解决办法：采用pyqtgraph替代，从源码安装。
 
+- [rosrun之后tab补全导致terminator崩溃](https://answers.ros.org/question/305105/rosrun-tab-autocompletion-crashes-terminal/)
+移除上游版本rosbash并安装ros-kinetic-rosbash，具体如下：
+```
+$ sudo apt-get purge rosbash
+$ sudo apt-get autoremove
+$ sudo apt-get install ros-kinetic-rosbash 
+$ which rosrun  # 期待是/opt/ros/kinetic/bin/rosrun
+```
+可参考[此处](https://blog.csdn.net/Jony_T/article/details/84247778),
+但尝试后未能解决问题。
+
 ## [CoppeliaSim](https://www.coppeliarobotics.com/)
 -  下载
 
