@@ -19,3 +19,18 @@ if(sensor.supports(RS2_OPTION_PRE_PROCESSING_SHARPENING))
     sensor.set_option(RS2_OPTION_PRE_PROCESSING_SHARPENING, 3)
 ```
 其中set_option函数参见librealsense2包中的rs_option.h.
+
+## ifm相机
+-- [ifm3d](https://github.com/ifm/ifm3d)  
+有如下两种方式
+- Snap应用
+```
+$ sudo snap install ifm3d
+```
+- Ubuntu apt
+
+-- [ifm3d-ros](https://github.com/ifm/ifm3d-ros)
+```
+$ sudo apt install ros-kinetic-ifm3d
+```
+注： 这个ros安装本身是完整的，若只在ROS下开发，上面这个安装就足够了。
