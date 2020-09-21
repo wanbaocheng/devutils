@@ -378,6 +378,33 @@ cd vcpkg
 ./bootstrap-vcpkg.sh
 ```
 注：[vcpkg包下载缓慢的解决办法](https://blog.csdn.net/qq_39690181/article/details/82910610)
+
+## OpenCV
+- 下载[opencv-3.4.3](https://github.com/opencv/opencv/releases/tag/3.4.3),
+  [opencv_contrib-3.4.3](https://github.com/opencv/opencv_contrib/releases/tag/3.4.3)
+- 安装依赖项
+```
+$ sudo apt-get install build-essential
+$ sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+$ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+```
+- 解压opencv-3.4.3和opencv_contrib-3.4.3，把opencv_contrib-3.4.3拷贝至opencv-3.4.3目录下
+- 编译并安装opencv  
+  转到opencv-3.4.3根目录
+```
+$ mkdir build
+$ cd build
+$ cmake -D CMAKE_INSTALL_PREFIX=/usr/local -D CMAKE_BUILD_TYPE=Release -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.3/modules ..
+$ make -j4
+$ sudo make install
+```
+- 测试  
+  转到opencv-3.4.3根目录
+```
+$ cd samples/cpp/example_cmake
+$ make -j4
+$ ./opencv_example 
+```
 ## PCL
 ```
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
