@@ -379,7 +379,7 @@ cd vcpkg
 ```
 注：[vcpkg包下载缓慢的解决办法](https://blog.csdn.net/qq_39690181/article/details/82910610)
 
-## OpenCV
+## [OpenCV](https://blog.csdn.net/zbr794866300/article/details/89845187?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param)
 - 下载[opencv-3.4.3](https://github.com/opencv/opencv/releases/tag/3.4.3),
   [opencv_contrib-3.4.3](https://github.com/opencv/opencv_contrib/releases/tag/3.4.3)
 - 安装依赖项
@@ -398,6 +398,42 @@ $ cmake -D CMAKE_INSTALL_PREFIX=/usr/local -D CMAKE_BUILD_TYPE=Release -D OPENCV
 $ make -j4
 $ sudo make install
 ```
+- 链接库共享
+编译安装完毕之后，为了让你的链接库被系统共享，让编译器发现，需要执行管理命令ldconfig：
+```
+$ sudo ldconfig -v
+```
+- opencv环境配置
+```
+$ sudo gedit /etc/ld.so.conf.d/opencv.conf
+```
+运行该命令后，会弹出一个空的文档，需要在里面加入：
+```
+/usr/local/lib
+```
+保存关闭文档
+执行如下命令让配置生效
+```
+$ sudo ldconfig 
+```
+接着配置bash,执行一下命令：
+```
+$ sudo gedit /etc/bash.bashrc
+```
+一样会弹出一个文档，不过里面有内容，不用管，在末尾加入以下内容：
+```
+PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH 
+```
+保存关闭，执行命令更新：
+```
+source /etc/bash.bashrc
+```
+执行后，如果你的终端命令最前的计算机名字颜色变成亮白色，就关闭终端，在重启进入到build文件下，执行更新命令：
+```
+sudo updatedb
+```
+若没有，就不需要关闭，直接执行即可。
 - 测试  
   转到opencv-3.4.3根目录
 ```
@@ -405,6 +441,12 @@ $ cd samples/cpp/example_cmake
 $ make -j4
 $ ./opencv_example 
 ```
+即可看到打开了摄像头，在左上角有一个hello opencv 即表示配置成功。同时可以命令
+```
+$ pkg-config --modversion opencv
+```
+查看opencv版本
+
 ## PCL
 ```
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
