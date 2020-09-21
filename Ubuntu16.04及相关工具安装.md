@@ -413,6 +413,15 @@ sudo apt-get install libpcl-dev
 ```
 或者到[官网](https://github.com/PointCloudLibrary/pcl/releases/tag/pcl-1.9.1) 下载PCL源码，然后编译。可参考[PCL1.8+Ubuntu16.04安装详解](https://blog.csdn.net/dantengc/article/details/78446600)
 
+## [google test](https://blog.csdn.net/bingqingsuimeng/article/details/80103828?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param)
+```
+$ sudo apt-get install libgtest-dev
+$ cd /usr/src/gtest
+$ sudo cmake .
+$ sudo make
+$ sudo cp libgtest*.a /usr/local/lib 
+```
+
 ## [starUML](http://staruml.io/)
 - 下载软件  
 到[这里](http://staruml.io/download/releases/StarUML-3.2.1.AppImage)下载
