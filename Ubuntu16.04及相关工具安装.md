@@ -359,15 +359,22 @@ trusted-host=mirrors.aliyun.com
 - [点击下载 CLion 2020.1](https://download.jetbrains.com/cpp/CLion-2020.1.tar.gz?_ga=2.231330455.923605908.1602592194-580699805.1592986569)  
 亦可参见 https://www.jetbrains.com/clion/download/other.html
 - 安装  
-解压 CLion到安装目录(记为CLionRoot, 使用时替换为实际目录)下
-```shell script
-$ cd CLionRoot/bin
-$ ./clion.sh
-```
-进行一些配置, 然后选择免费版, 拖拽破解目录下的 jetbrains-agent.jar 到主界面中, 选择重启和激活码, 等待clion重启后, 输入激活码即可.
+  - [安装openjdk-8-jdk](https://blog.csdn.net/zbj18314469395/article/details/86064849)
+  ```shell script
+  $ sudo apt-get update
+  $ sudo apt-get install openjdk-8-jdk
+  $ java -version
+  ```
+  - 解压 CLion到安装目录(记为CLionRoot, 使用时替换为实际目录)下
+  ```shell script
+  $ cd CLionRoot/bin
+  $ ./clion.sh
+  ```
+  进行一些配置, 然后选择免费版, 拖拽破解目录下的 jetbrains-agent.jar 到主界面中, 选择重启和激活码, 等待clion重启后, 输入激活码即可.
 
 注: 破解文件和激活码参见 https://www.gaoredu.com/jiaocheng/jetbrains-software-activation.html
-##### 在工具条上添加Reload CMake Project 和 Reset Cache and Reload Project
+
+#### 在工具条上添加Reload CMake Project 和 Reset Cache and Reload Project
 - 鼠标指针放在工具条的空白处点击右键，选择 Customize Menus and Toolbars...
 - 打开Main Toolbar，选择最后一项
 - 选择对话框上部的 +，点击 Add Action...
