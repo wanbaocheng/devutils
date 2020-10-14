@@ -19,14 +19,6 @@ $ sudo apt-get install python3-pip
 $ sudo pip3 install jetson-stats
 $ jtop
 ```
-最佳性能设置
-```shell script
-$ sudo nvpmodel -m 0
-$ sudo vim /sys/devices/pwm-fan/target_pwm  # 设置0-255之间的数字
-$ sudo jetson_clocks
-$ sudo nvpmodel --query
-$ jtop
-```
 ## [安装jetson-interface](https://blog.csdn.net/weixin_44457020/article/details/106951508)
 参见 https://elinux.org/Jetson_Zoo
 ```shell script
@@ -53,6 +45,14 @@ $ imagenet-console bird_1.jpg bird_1_re.jpg
 $ xdg-open bird_1_re.jpg
 ```
 ## Jetson AGX Xavier设置功耗模式及风扇转速
+最佳性能设置
+```shell script
+$ sudo nvpmodel -m 0
+$ sudo vim /sys/devices/pwm-fan/target_pwm  # 设置0-255之间的数字
+$ sudo jetson_clocks
+$ sudo nvpmodel --query
+$ jtop
+```
 参见 https://blog.csdn.net/hlld__/article/details/108345609
 
 
