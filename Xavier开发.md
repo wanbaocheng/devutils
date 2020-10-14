@@ -54,5 +54,24 @@ $ sudo nvpmodel --query
 $ jtop
 ```
 参见 https://blog.csdn.net/hlld__/article/details/108345609
+## [ROS安装](https://elinux.org/Jetson_Zoo#ROS)
+```shell script
+# enable all Ubuntu packages:
+$ sudo apt-add-repository universe
+$ sudo apt-add-repository multiverse
+$ sudo apt-add-repository restricted
 
+# add ROS repository to apt sources
+$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+$ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+# install ROS full
+$ sudo apt-get update
+$ sudo apt-get install ros-melodic-desktop-full
+
+# add ROS paths to environment
+sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
+```
+## [Deep Learning Nodes for ROS/ROS2](https://github.com/dusty-nv/ros_deep_learning)
+安装参见 https://github.com/dusty-nv/ros_deep_learning#installation
 
