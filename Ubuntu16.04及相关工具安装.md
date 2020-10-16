@@ -4,8 +4,14 @@
 sudo update-grub
 sudo grub-install /dev/sd*
 ```
-其中 sd* 改为对应的系统所在的分区。
+其中 sd* 改为对应的系统所在的分区。  
+注： 在安装ubuntu系统时选择的“其它安装”方式时，安装完成后进入系统，执行
+```
+$ sudo update-grub
+```
+即可。  
 如果需要把[Ubuntu /home下中文目录修改成英文](https://blog.csdn.net/fei2636/article/details/79202102)，可以
+```
 ```
 export LANG=en_US
 xdg-user-dirs-gtk-update
@@ -13,7 +19,7 @@ xdg-user-dirs-gtk-update
 可能遇到在图形界面用Delete键删除文件或文件夹到回收站功能不好使的情况，这可能是回收站文件夹（在/home/用户名/.local/share/下）的权限问题，用命令chmod修改即可。
 
 启动Ubuntu16系统后发现桌面丢失（只有背景，没有图标）的情形，做法如下：
-首先按Ctrl+Alt+F1进入命令行模式（输入用户名和密码），然后
+首先按Ctrl+Alt+F1(或者F3,...,F6)进入命令行模式（输入用户名和密码），然后
 ```shell script
 $ sudo apt update
 $ sudo service lightdm stop
