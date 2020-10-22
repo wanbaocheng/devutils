@@ -128,7 +128,7 @@ nvidia-smi命令执行较慢的解决方法：
 $ sudo nvidia-persistenced --persistence-mode
 ```
 
-## 硬盘
+# 硬盘
 - [分区](https://blog.csdn.net/weixin_41018348/article/details/82592057)  
 使用工具gparted
 ```
@@ -137,9 +137,10 @@ $ sudo gparted
 ```
 - 挂载  
 参见 
-- https://zhuanlan.zhihu.com/p/27642782, 
-- https://blog.csdn.net/richerg85/article/details/17917129
-
+  - https://zhuanlan.zhihu.com/p/27642782, 
+  - https://blog.csdn.net/richerg85/article/details/17917129
+- 扩容  
+参见 https://blog.csdn.net/xinquanv1/article/details/83584333
 
 # 终端
 在终端中根据当前输入的部分命令字符按向上或向下键以进行向前或向后的历史命令过滤查找，输入
