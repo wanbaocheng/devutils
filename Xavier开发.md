@@ -75,3 +75,29 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
 ## [Deep Learning Nodes for ROS/ROS2](https://github.com/dusty-nv/ros_deep_learning)
 安装参见 https://github.com/dusty-nv/ros_deep_learning#installation
 
+## 多目标追踪(MOT)
+- [FastMOT](https://github.com/GeekAlexis/FastMOT)
+  ```
+  $ scripts/install_jetson.sh
+  ```
+  在安装过程中, 出现如下问题:
+  - cuda.h找不到  
+  ```
+  $ vim ~/.bashrc
+  ```
+  在末尾添加(类似)
+  ```
+  export CUDA_HOME=/usr/local/cuda
+  export PATH=$CUDA_HOME/bin:$PATH
+  export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+  export C_INCLUDE_PATH=$CUDA_HOME/include/:${C_INCLUDE_PATH}
+  export CPLUS_INCLUDE_PATH=$CUDA_HOME/include/:${CPLUS_INCLUDE_PATH}
+  ```
+  参见
+    - https://blog.csdn.net/ECNU_LZJ/article/details/104475098
+    - https://blog.csdn.net/u011337602/article/details/87936331?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf
+    - https://blog.csdn.net/u011337602/article/details/81238164
+  - 安装numba
+  参见
+    - https://bagustris.wordpress.com/2020/07/09/how-to-install-numba-and-librosa-in-jetson-agx-xavier-ubuntu-18-04/
+
