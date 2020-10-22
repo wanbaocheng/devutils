@@ -384,7 +384,8 @@ trusted-host=mirrors.aliyun.com
   ```
   进行一些配置, 然后选择免费版, 拖拽破解目录下的 jetbrains-agent.jar 到主界面中, 选择重启和激活码, 等待clion重启后, 输入激活码即可.
 
-注: 破解文件和激活码参见 https://www.gaoredu.com/jiaocheng/jetbrains-software-activation.html,或者
+注: 破解文件和激活码参见 https://www.gaoredu.com/jiaocheng/jetbrains-software-activation.html,  
+或者
 ```
 $ git clone 网址:/root/repos/clion2020.1_crack
 ```
