@@ -128,7 +128,14 @@ nvidia-smi命令执行较慢的解决方法：
 $ sudo nvidia-persistenced --persistence-mode
 ```
 
-## 硬盘挂载  
+## 硬盘
+- [分区](https://blog.csdn.net/weixin_41018348/article/details/82592057)  
+使用工具gparted
+```
+$ sudo apt install gparted
+$ sudo gparted
+```
+- 挂载  
 参见 
 - https://zhuanlan.zhihu.com/p/27642782, 
 - https://blog.csdn.net/richerg85/article/details/17917129
