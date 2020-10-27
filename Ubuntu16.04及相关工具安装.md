@@ -135,8 +135,9 @@ $ sudo nvidia-persistenced --persistence-mode
 $ sudo apt install gparted
 $ sudo gparted
 ```
+- [格式化](https://blog.csdn.net/xiaoqu001/article/details/78706822?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf)
 - 挂载  
-参见 
+  参见
   - https://zhuanlan.zhihu.com/p/27642782, 
   - https://blog.csdn.net/richerg85/article/details/17917129
 - 扩容  
