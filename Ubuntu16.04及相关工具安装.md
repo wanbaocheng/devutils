@@ -352,7 +352,7 @@ $ jupyter lab
 ```
 如果需要在[jupyterlab中使用文件框进行文件选择](https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-the-jupyterlab-extension), 执行
 ```
-$ pip install filechooser
+$ pip install ipyfilechooser
 $ pip install ipywidgets
 $ jupyter nbextension enable --py widgetsnbextension
 $ jupyter labextension install @jupyter-widgets/jupyterlab-manager
