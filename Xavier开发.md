@@ -134,7 +134,9 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
   - 创建网络  
     参考
     - 论文: [Global Data Association for Multi-Object Tracking Using Network Flows](http://vision.cse.psu.edu/courses/Tracking/vlpr12/lzhang_cvpr08global.pdf)
-    - 代码: https://github.com/ukiyoyo/py-mcftracker
+    - 代码: 
+      - https://github.com/ukiyoyo/py-mcftracker
+      - https://github.com/nwojke/mcf
       
   - 论文
     - [Efficient Global Multi-object Tracking Under Minimum-cost Circulation Framework](https://arxiv.org/pdf/1911.00796.pdf)
