@@ -115,3 +115,27 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
   ```
   - 主要参考论文[High-Speed Tracking-by-Detection Without Using Image Information](http://elvera.nue.tu-berlin.de/files/1517Bochinski2017.pdf)
   - 在PC上安装通过, 但在AGX Xavier上安装opencv-contrib-python出错, 导致整个包无法安装
+  
+- [CINDA(CIrculation Network based Data-Association)](https://github.com/yu-lab-vt/CINDA)
+  - 安装
+  ```
+  $ git clone https://github.com/yu-lab-vt/CINDA.git
+  $ cd CINDA/src_c
+  $ gcc cinda_funcs.c -fPIC -shared -o lib_cinda_funcs.so
+  ```
+  - 示例
+  ```python
+  import numpy as np
+  from src_python.algo import *
+  detection_arcs = np.loadtxt("./sample/detecton_mat.txt", delimiter=",")
+  transition_arcs = np.loadtxt("./sample/transition_mat.txt", delimiter=",")
+  traj, cost = mcc4mot(detection_arcs, transition_arcs)
+  ```
+  - 创建网络  
+    参考
+    - 论文: [Global Data Association for Multi-Object Tracking Using Network Flows](http://vision.cse.psu.edu/courses/Tracking/vlpr12/lzhang_cvpr08global.pdf)
+    - 代码: https://github.com/ukiyoyo/py-mcftracker
+      
+  - 论文
+    - [Efficient Global Multi-object Tracking Under Minimum-cost Circulation Framework](https://arxiv.org/pdf/1911.00796.pdf)
+    - [muSSP: Efficient Min-cost Flow Algorithm for Multi-object Tracking](https://papers.nips.cc/paper/8334-mussp-efficient-min-cost-flow-algorithm-for-multi-object-tracking.pdf)
