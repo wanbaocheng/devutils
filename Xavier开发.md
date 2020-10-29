@@ -101,3 +101,17 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
   参见
     - https://bagustris.wordpress.com/2020/07/09/how-to-install-numba-and-librosa-in-jetson-agx-xavier-ubuntu-18-04/
 
+- [multi-object-tracker](https://github.com/adipandas/multi-object-tracker.git)  
+  - 安装
+  ```
+  $ git clone https://github.com/adipandas/multi-object-tracker
+  $ cd multi-object-tracker
+  $ python -m venv venv
+  $ source venv/bin/activate
+  $ pip install numpy matplotlib scipy
+  $ pip install opencv-contrib-python
+  $ pip install ipyfilechooser  # 如果使用jupyter例子(见examples目录)推荐安装. 若出现问题请参见本文档jupyter lab条目
+  $ pip install -e .
+  ```
+  - 主要参考论文[High-Speed Tracking-by-Detection Without Using Image Information](http://elvera.nue.tu-berlin.de/files/1517Bochinski2017.pdf)
+  - 在PC上安装通过, 但在AGX Xavier上安装opencv-contrib-python出错, 导致整个包无法安装
