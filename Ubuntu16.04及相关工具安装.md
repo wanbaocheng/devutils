@@ -350,7 +350,13 @@ c.NotebookApp.ip='172.17.139.72'     # 内网IP，如果没有127.0.0.1也可以
 ```
 $ jupyter lab
 ```
-
+如果需要在[jupyterlab中使用文件框进行文件选择](https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-the-jupyterlab-extension), 执行
+```
+$ pip install filechooser
+$ pip install ipywidgets
+$ jupyter nbextension enable --py widgetsnbextension
+$ jupyter labextension install @jupyter-widgets/jupyterlab-manager
+```
 ## anaconda3
 到官网下载 [Linux版](https://www.anaconda.com/distribution/)，[Anaconda installer archive](https://repo.anaconda.com/archive/)，[anaconda与python版本对应关系](https://blog.csdn.net/yuejisuo1948/article/details/81043823)，比如文件名为Anaconda3-XXXX.XX-Linux-x86_64.sh，拷贝到 /opt 目录下，然后在命令行执行
 ```
