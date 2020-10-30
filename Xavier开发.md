@@ -50,9 +50,23 @@ $ jtop
 $ git clone --recursive https://gitee.com/wanbaocheng/jetson-inference.git
 $ cd jetson-inference/tools
 $ sed -in-place -e 's@https://nvidia.box.com/shared/static@https://bbs.gpuworld.cn/mirror@g' download-models.sh
-$ sed -in-place -e 's@https://nvidia.box.com/shared/static@https://bbs.gpuworld.cn/mirror@g' install-pytorch.sh
+```
+如果需要安装pytorch(以1.6版本为例), 需要做如下修改
+```shell script
 $ sed -in-place -e 's@https://github.com/pytorch/vision@https://gitee.com/wanbaocheng/pytorch_vision.git@g' install-pytorch.sh
 $ sed -in-place -e 's@https://github.com/dusty-nv/vision@https://gitee.com/wanbaocheng/dusty-nv_vision.git@g' install-pytorch.sh
+```
+并且在install-pytorch.sh中查找torch-1.6所在的行, 查找结果大致是
+```text
+download_wheel pip3 "torch-1.6.0-cp36-cp36m-linux_aarch64.whl" "https://nvidia.box.com/shared/static/9eptse6jyly1ggt9axbja2yrmj6pbarc.whl"
+```
+该行整个替换为
+```shell script
+pip3 install torch-1.6.0-cp36-cp36m-linux_aarch64.whl
+``` 
+其中需要把torch-1.6.0-cp36-cp36m-linux_aarch64.whl事先下载到当前目录(install-pytorch.sh所在的目录). 
+这样做的原因是原来提供的下载地址失效, 或者无法下载.  继续
+```shell script
 $ apt update
 $ sudo apt-get install git cmake libpython3-dev python3-numpy
 $ cd ..
