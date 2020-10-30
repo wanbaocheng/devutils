@@ -104,6 +104,9 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
 ## [Deep Learning Nodes for ROS/ROS2](https://github.com/dusty-nv/ros_deep_learning)
 安装参见 https://github.com/dusty-nv/ros_deep_learning#installation
 
+## [<span id="opencv">opencv</span>](https://github.com/mdegans/nano_build_opencv)
+从源码编译安装OpenCV(Nano, NX, AGX等等).
+
 ## 多目标追踪(MOT)
 - [FastMOT](https://github.com/GeekAlexis/FastMOT)
   ```
@@ -143,7 +146,7 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
   $ pip install -e .
   ```
   - 主要参考论文[High-Speed Tracking-by-Detection Without Using Image Information](http://elvera.nue.tu-berlin.de/files/1517Bochinski2017.pdf)
-  - 在PC上安装通过, 但在AGX Xavier上安装opencv-contrib-python出错, 导致整个包无法安装
+  - 在PC上安装通过, 但在AGX Xavier上用pip安装opencv-contrib-python出错, 需要从[源码编译安装](#opencv)
   
 - [CINDA(CIrculation Network based Data-Association)](https://github.com/yu-lab-vt/CINDA)
   - 安装
