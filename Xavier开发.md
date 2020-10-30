@@ -6,10 +6,25 @@
 $ sudo apt install ./刚下载的sdkmanager??.deb文件名
 $ sdkmanager
 ```
+- STEP01 开发环境
+  - 登录Nvidia开发者网站，此处需要有Nvidia Developer账号，没有的话需要注册。
+  - 选择刷机设备的型号
+  - 选择JetPack版本
+- STEP02 详细说明和证书
+- STEP03 刷机
+  - 选择手工安装
+  - 重新插拔电源线和数据线
+  - 按照提示进行
+- STEP04 汇总
+
 ## 中文输入法
 - 设置  
-打开 System Settings -> Text Entry, 点击窗体左下角的 + , 添加 Chinese, 重启即可.
-- Fcitx输入中文不显示候选词框  
+  - 打开 System Settings -> Text Entry, 点击窗体左下角的 + , 添加 Chinese,
+  重启即可.
+  - 打开 System Settings -> Language Support, 点击 install
+    按钮，把左侧列表框中的汉语提至列表最前列，键盘输入法系统选择 fcitx，
+    重启系统
+- Fcitx输入中文不显示候选词框
 ```shell script
 $ sudo apt remove fcitx-module-kimpanel
 ```
@@ -19,6 +34,16 @@ $ sudo apt-get install python3-pip
 $ sudo pip3 install jetson-stats
 $ jtop
 ```
+## Jetson AGX Xavier设置功耗模式及风扇转速
+最佳性能设置
+```shell script
+$ sudo nvpmodel -m 0
+$ sudo vim /sys/devices/pwm-fan/target_pwm  # 设置0-255之间的数字
+$ sudo jetson_clocks
+$ sudo nvpmodel --query
+$ jtop
+```
+参见 https://blog.csdn.net/hlld__/article/details/108345609
 ## [安装jetson-interface](https://blog.csdn.net/weixin_44457020/article/details/106951508)
 参见 https://elinux.org/Jetson_Zoo
 ```shell script
@@ -44,16 +69,6 @@ $ cd build/aarch64/images
 $ imagenet-console bird_1.jpg bird_1_re.jpg
 $ xdg-open bird_1_re.jpg
 ```
-## Jetson AGX Xavier设置功耗模式及风扇转速
-最佳性能设置
-```shell script
-$ sudo nvpmodel -m 0
-$ sudo vim /sys/devices/pwm-fan/target_pwm  # 设置0-255之间的数字
-$ sudo jetson_clocks
-$ sudo nvpmodel --query
-$ jtop
-```
-参见 https://blog.csdn.net/hlld__/article/details/108345609
 ## [ROS安装](https://elinux.org/Jetson_Zoo#ROS)
 ```shell script
 # enable all Ubuntu packages:

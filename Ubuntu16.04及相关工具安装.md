@@ -410,7 +410,7 @@ $ git clone 网址:/root/repos/clion2020.1_crack
 - 选择对话框上部的 +，点击 Add Action...
 - 依次展开 Main menu -> Tools -> CMake
 - 按住Ctrl，选择 Reload CMake Project 和 Reset Cache and Reload Project, 点击底部OK按钮
-
+### [解决在nvidia xavier平台上安装clion后无法使用local terminal的问题](https://blog.csdn.net/weixin_43710385/article/details/106887908)
 
 ## Visual Studio Code
 到[官网](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)按步骤执行即可，然后可[配置 cmake 的 C++ 项目模板](http://www.pianshen.com/article/8310115346/)。
