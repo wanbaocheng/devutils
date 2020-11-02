@@ -39,7 +39,15 @@ $ sudo apt install xserver-xorg-input-all
 ```shell script
 $ reboot
 ```
-- [Ubuntu 16.04 创建无线热点](https://blog.csdn.net/ac_dao_di/article/details/71908444)
+- 网络
+  - [通过网线共享网络](https://www.cnblogs.com/jiading/p/11989966.html)
+    - 首先通过网线将一台有无线网卡、已经连接无线网络的设备和一台需要网络连接的设备相连接
+    - 终端中输入
+      ```shell script
+      $ nm-connection-editor
+      ```
+    - 然后在网络连接中的“以太网”选择修改，将IPV4目录下的“方法”修改为“与其他网络共享”即可
+  - [Ubuntu 16.04 创建无线热点](https://blog.csdn.net/ac_dao_di/article/details/71908444)
 
 - [如何进入grub引导界面](https://jingyan.baidu.com/article/6dad50755e35d1a123e36ecc.html)
   - 进入ubuntu系统，打开终端，
