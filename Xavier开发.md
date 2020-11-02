@@ -173,3 +173,7 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
   - 论文
     - [Efficient Global Multi-object Tracking Under Minimum-cost Circulation Framework](https://arxiv.org/pdf/1911.00796.pdf)
     - [muSSP: Efficient Min-cost Flow Algorithm for Multi-object Tracking](https://papers.nips.cc/paper/8334-mussp-efficient-min-cost-flow-algorithm-for-multi-object-tracking.pdf)
+    
+## issac SDK
+  - [安装 bazel](https://docs.bazel.build/versions/3.7.0/install-compile-source.html#bootstrap-bazel)  
+    注意下载的源码压缩包是带dist字样的
