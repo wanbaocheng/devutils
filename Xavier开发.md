@@ -176,4 +176,15 @@ sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc'
     
 ## issac SDK
   - [安装 bazel](https://docs.bazel.build/versions/3.7.0/install-compile-source.html#bootstrap-bazel)  
-    注意下载的源码压缩包是带dist字样的
+    - 下载并解压  
+    注意下载的源码压缩包是带dist字样的。
+    - 准备
+    ```shell script
+    $ sudo apt-get install build-essential openjdk-11-jdk python zip unzip
+    ```
+    - 编译  
+    进入bazel根目录，执行
+    ```shell script
+    $ ./compile.sh
+    ```
+    
