@@ -974,6 +974,9 @@ $ brew install tmux
   ```shell script
   $ sudo apt-get install texmaker
   ```
+
+## Latex参考资源   
+   - [LaTeX 实战经验：新手须知](https://blog.csdn.net/simple_the_best/article/details/51244631)
  
 # 小工具
 ## ubuntu下分解大压缩文件或解压拆分后的文件
