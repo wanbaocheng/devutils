@@ -136,6 +136,13 @@ nvidia-smi命令执行较慢的解决方法：
 $ sudo nvidia-persistenced --persistence-mode
 ```
 
+# 桌面外观优化
+```shell script
+$ sudo apt update
+$ sudo apt install gnome-tweaks
+$ gnome-tweaks
+```
+
 # 硬盘
 - [分区](https://blog.csdn.net/weixin_41018348/article/details/82592057)  
 使用工具gparted
