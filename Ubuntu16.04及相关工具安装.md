@@ -309,8 +309,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
   $ sudo yum install libSM-1.2.2-2.el7.x86_64 --setopt=protected_multilib=false
   ```
   
-  - matplotlib  
-  在绘图加中文标记时会出现乱码的情况，可通过下面的[方法](https://www.jianshu.com/p/70f01fd5b473)来解决：
+- matplotlib  
+  - 在绘图加中文标记时会出现乱码的情况，可通过下面的[方法](https://www.jianshu.com/p/70f01fd5b473)来解决：
     - 下载中文字体文件(或者从windows中拷贝一个)  
     下载字体文件[SimHei.ttf](https://www.fontpalace.com/font-download/SimHei/)
     - 修改matplotlibrc文件  
@@ -347,6 +347,17 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     $ rm -r *
     ```  
     重启python使得设置生效。
+  - [matplotlib non-GUI backend 无法显示图片解决办法](https://blog.csdn.net/hanxirensheng/article/details/97893686?utm_medium=distribute.pc_relevant.none-task-blog-title-2&spm=1001.2101.3001.4242)
+    - 安装python3-tk
+    ```shell script
+    $ sudo apt install python3-tk
+    ```
+    - python中设置后端
+    ```python
+    import matplotlib 
+    matplotlib.use('TKAgg')
+    ```
+    然后正常绘图即可. 
 
 ## [jupyter lab](https://blog.csdn.net/wwyy2018/article/details/90440088?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase)
 ```
