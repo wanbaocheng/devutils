@@ -1,3 +1,18 @@
+# 安装nvidia版的docker
+- 基础docker  
+  根据[docker官网](https://docs.docker.com/install/linux/docker-ce/ubuntu/)所述步骤进行安装。
+- 安装Nviida Container toolkit  
+  根据[官网](https://github.com/NVIDIA/nvidia-docker)所述步骤安装。
+- 为docker添加镜像源
+```shell script
+$ sudo vim /etc/docker/daemon.json # 如果没有就新建
+```  
+  在文件中输入
+```json
+{
+    "registry-mirrors": ["https://cr.console.aliyun.com/"]
+}
+``` 
 # Docker常用命令  
 - 查看Docker的客户端和服务器版本  
 ```shell script

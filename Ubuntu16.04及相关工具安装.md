@@ -753,21 +753,6 @@ $ zbstudio
 - 源码编译  
   到 [github](https://github.com/cloudcompare/cloudcompare) 或者[Alberto Mardegan](https://github.com/mardy/CloudCompare)上，按照上面的步骤安装即可。注意在安装的过程中可以提示缺少qt库等，可参考[该页](https://stackoverflow.com/questions/40688812/could-not-find-a-package-configuration-file-provided-by-qt5svg)。
 
-## 安装nvidia版的docker
-- 基础docker  
-  根据[docker官网](https://docs.docker.com/install/linux/docker-ce/ubuntu/)所述步骤进行安装。
-- 安装Nviida Container toolkit  
-  根据[官网](https://github.com/NVIDIA/nvidia-docker)所述步骤安装。
-- 为docker添加镜像源
-```shell script
-$ sudo vim /etc/docker/daemon.json # 如果没有就新建
-```  
-  在文件中输入
-```json
-{
-    "registry-mirrors": ["https://cr.console.aliyun.com/"]
-}
-``` 
 ## [nginx](https://www.jianshu.com/p/d5114a2a2052)
 ```
 $ cd /opt
