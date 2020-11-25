@@ -136,7 +136,7 @@ nvidia-smi命令执行较慢的解决方法：
 $ sudo nvidia-persistenced --persistence-mode
 ```
 
-# 桌面外观优化
+# 桌面优化配置
 ```shell script
 $ sudo apt update
 $ sudo apt install gnome-tweaks

@@ -46,6 +46,8 @@ $ sudo docker ps -aq
 ```shell script
 $ sudo docker container create --name=mycudaNo -it nvidia/cuda:10.0-base bash
 $ sudo docker container create --gpus=all --name=mycudaYes -it nvidia/cuda:10.0-base bash
+$ sudo docker create -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
+  -e GDK_SCALE -e GDK_DPI_SCALE --name hellogui -it ubuntu:16.04 bash   # 创建可显示GUI的容器
 ```
 - 启动容器
 ```shell script
