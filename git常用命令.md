@@ -112,6 +112,23 @@ $ gitk --all
   $ git reset HEAD^  // 回撤仓库最后一次提交
   $ git reset --hard commitid // 回撤到该次提交id的位置
   ```
+  - 子模块
+    - 在git库中添加子模块
+    ```
+    $ git submodule add 子模块URL
+    ```
+    - 更新子模块  
+    在克隆git库后需如下操作
+    ```
+    $ git submodule init
+    $ git submodule update
+    ```
+    - [.gitmodule中没有为非子模块的路径找到子模块映射](https://stackoom.com/question/HYnt/gitmodule%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%B8%BA%E9%9D%9E%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%AF%E5%BE%84%E6%89%BE%E5%88%B0%E5%AD%90%E6%A8%A1%E5%9D%97%E6%98%A0%E5%B0%84)
+    ```shell script
+    $ git ls-files --stage | grep 160000    # 罗列索引中引用的所有子模块
+    $ git rm --cached 子模块                 # 根据上面所列的子模块逐个删除
+    ```
+    
 
 ### 从仓库中彻底删除文件或文件夹
 ```
