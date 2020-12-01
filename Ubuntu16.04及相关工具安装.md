@@ -64,6 +64,29 @@ $ reboot
     ```
     重启即可进入grub界面。
 
+
+# 添加用户和修改hostname
+- 以root用户进入终端
+- 创建用户名（例如：wbc）
+```shell script
+# adduser wbc
+```
+- 在Sudoers列表里添加用户
+```shell script
+# vim /etc/sudoers
+```
+在文件末尾添加一行
+```shell script
+wbc ALL=(ALL:ALL) ALL
+```
+注意：如果没有sudoers文件，说明系统不支持sudo命令，需要先行安装
+```shell script
+# apt install sudo
+```
+- 修改hostname
+主机名存放在/etc/hostname文件中，修改主机名时，编辑hostname文件，在文件中输入新的主机名并保存该文件即可。 
+请注意务必重启系统。
+
 # Nvidia显卡驱动安装
 ### 1. 下载NVIDIA官方驱动
 查看当前电脑的显卡型号
