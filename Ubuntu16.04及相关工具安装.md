@@ -969,6 +969,25 @@ $ vncserver :1 -geometry 2560x1440   # 设置分辨率
 ```shell script
 $ ssh -L 5901:127.0.0.1:5901 -N -f -l username server_ip_address
 ```
+有时执行上述命令时会发生如下出错信息:
+```shell script
+bind: Address already in use
+channel_setup_fwd_listener_tcpip: cannot listen to port: 5901
+Could not request local forwarding.
+```
+这意味着本地计算机的5901端口正在被使用, 不能请求本地转发。是否也之前运行过VNC服务器？
+  - 方法1: 使用其它端口(比如改为6901)
+  ```shell script
+  $ ssh -L 6901:127.0.0.1:5901 -N -f -l username server_ip_address
+  ```
+  - 方法2: 杀死使用该端口的应用
+  ```shell script
+  $ lsof -ti:5901 | xargs kill -9
+  $ ssh -L 5901:127.0.0.1:5901 -N -f -l username server_ip_address
+  ```
+
+删除使用该接口的应用或者
+
 打开[VNC-Viewer](https://www.realvnc.com/en/connect/download/viewer/), 在上面vnc connect栏中输入
 ```shell script
 localhost:5901
