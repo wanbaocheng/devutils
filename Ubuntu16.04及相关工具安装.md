@@ -908,6 +908,17 @@ $ telnet IP地址 80                  # 测试IP地址对应的服务器的80端
 $ gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'
 ```
 
+## 中文输入法(Ubuntu18.04)
+- 设置  
+  - 打开 System Settings -> Text Entry, 点击窗体左下角的 + , 添加 Chinese,
+  重启即可.
+  - 打开 System Settings -> Language Support, 点击 install
+    按钮，把左侧列表框中的汉语提至列表最前列，键盘输入法系统选择 fcitx，
+    重启系统
+- Fcitx输入中文不显示候选词框
+```shell script
+$ sudo apt remove fcitx-module-kimpanel
+```
 
 ## ssh
 在终端中远程登录服务器后，长时间没有交互会导致服务器断链，解决办法有两种：  
