@@ -976,15 +976,17 @@ channel_setup_fwd_listener_tcpip: cannot listen to port: 5901
 Could not request local forwarding.
 ```
 这意味着本地计算机的5901端口正在被使用, 不能请求本地转发。是否也之前运行过VNC服务器？
-  - 方法1: 使用其它端口(比如改为6901)
-  ```shell script
-  $ ssh -L 6901:127.0.0.1:5901 -N -f -l username server_ip_address
-  ```
-  - 方法2: 杀死使用该端口的应用
-  ```shell script
-  $ lsof -ti:5901 | xargs kill -9
-  $ ssh -L 5901:127.0.0.1:5901 -N -f -l username server_ip_address
-  ```
+
+方法1: 使用其它端口(比如改为6901)
+```shell script
+$ ssh -L 6901:127.0.0.1:5901 -N -f -l username server_ip_address
+```
+
+方法2: 杀死使用该端口的应用
+```shell script
+$ lsof -ti:5901 | xargs kill -9
+$ ssh -L 5901:127.0.0.1:5901 -N -f -l username server_ip_address
+```
 
 删除使用该接口的应用或者
 
