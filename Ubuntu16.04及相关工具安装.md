@@ -922,6 +922,58 @@ export TMOUT=86400  # 以秒为单位
 ```
 注意设置完成后，要退出ssh远程连接，再次登录后才可以生效，因为要再读取一次.bash_profile文件。
 
+## [基于VNC的Ubuntu 20.04 远程桌面](Ubuntu 20.04 Remote Desktop Access with VNC)
+- 安装GNOME桌面环境
+```shell script
+$ sudo apt install ubuntu-gnome-desktop
+```
+为避免桌面在每次系统重新启动时尝试自启，将systemd默认目标改回多用户目标
+```shell script
+$ sudo systemctl set-default multi-user.target 
+```
+如果系统带有显示器, 可以通过如下命令启动桌面:
+```shell script
+$ startx
+```
+- 安装VNC 
+```shell script
+$ sudo apt install tigervnc-standalone-server
+```
+- 配置VNC服务
+转到VNC服务运行的用户(比如: wbc)
+```shell script
+# su - wbc
+$ vncpasswd
+$ cd ~/.vnc
+$ vim xstartup
+```
+输入如下内容
+```shell script
+#!/bin/sh
+# Start Gnome 3 Desktop 
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+vncconfig -iconic &
+dbus-launch --exit-with-session gnome-session &
+```
+- 启动VNC服务
+```shell script
+$ vncserver :1         # 对应的接口是5900+1=5901
+$ vncserver -list      # 罗列所有服务会话
+$ vncserver -kill :*   # 杀死所有服务会话
+$ vncserver --help     # 显示帮助信息
+$ vncserver :1 -geometry 2560x1440   # 设置分辨率
+```
+- [连接VNC服务器](https://xie.infoq.cn/article/cf473dc0dea917b0b2a546ecd)
+在本机运行
+```shell script
+$ ssh -L 5901:127.0.0.1:5901 -N -f -l username server_ip_address
+```
+打开[VNC-Viewer](https://www.realvnc.com/en/connect/download/viewer/), 在上面vnc connect栏中输入
+```shell script
+localhost:5901
+```
+
 ## qemu
 - 安装qemu  
 ```shell script
