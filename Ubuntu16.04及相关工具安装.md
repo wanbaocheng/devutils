@@ -922,7 +922,7 @@ export TMOUT=86400  # 以秒为单位
 ```
 注意设置完成后，要退出ssh远程连接，再次登录后才可以生效，因为要再读取一次.bash_profile文件。
 
-## [基于VNC的Ubuntu 20.04 远程桌面](Ubuntu 20.04 Remote Desktop Access with VNC)
+##[基于VNC的Ubuntu 20.04 远程桌面](https://www.answertopia.com/ubuntu/ubuntu-remote-desktop-access-with-vnc/)
 - 安装GNOME桌面环境
 ```shell script
 $ sudo apt install ubuntu-gnome-desktop
