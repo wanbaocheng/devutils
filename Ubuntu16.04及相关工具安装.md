@@ -903,6 +903,12 @@ $ ping IP地址                       # 是否能链接到IP地址对应的服�
 $ telnet IP地址 80                  # 测试IP地址对应的服务器的80端口是否开启
 ```
 
+## [如何将"关闭"移动到左侧](https://blog.csdn.net/qq_29935433/article/details/104795771?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-3.control)
+```shell script
+$ gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'
+```
+
+
 ## ssh
 在终端中远程登录服务器后，长时间没有交互会导致服务器断链，解决办法有两种：  
 - 方法一（本地）  
