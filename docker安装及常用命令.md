@@ -122,7 +122,8 @@ $ xhost +
 $ sudo docker create -h HN -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
   -e GDK_SCALE -e GDK_DPI_SCALE --name ubuntu_gui_demo -it ubuntu:20.04 bash 
 $ sudo docker start ubuntu_gui_demo
-$ sudo docker exec -it ubuntu_gui_demo bash
+$ sudo docker exec -it ubuntu_gui_demo bash  # root用户
+$ sudo docker exec -u wbc -it ubuntu_gui_demo bash  # root用户
 ```
 - 测试能否显示图像界面  
 在上面创建的容器中执行如下命令
