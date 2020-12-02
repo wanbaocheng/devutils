@@ -194,6 +194,23 @@ $ sudo docker run -itd --name 容器名 -h 容器主机名 --privileged \
 ```
 $ docker exec -u wbc -it 容器名称 bash
 ```
+## [Docker可视化工具](https://zhuanlan.zhihu.com/p/149693508)
+LazyDocker是基于终端的一个可视化查询工具，支持键盘操作和鼠标点击。
+相比Portainer来说可能不那么专业，不过对于开发者来说可能反而更加好用了。
+因为一般开发者都是使用命令行来运行Docker，偶尔需要图形化查看的时候，就可以使用LazyDocker这个工具。
+
+安装LazyDocker也非常简单，运行下面的命令即可。
+```shell script
+$ docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/.config/lazydocker:/.config/jesseduffield/lazydocker \
+  lazyteam/lazydocker
+```
+当然如果发现LazyDocker挺好用，准备经常使用的话，还可以把它做成缩写添加到shell配置文件中，这样就可以将它变成一个简单的命令。
+例如我用的是bash，就将下面这样添加到.bashrc文件中。以后就可以直接用lzd来调用LazyDocker了。
+```shell script
+alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/.config/lazydocker:/.config/jesseduffield/lazydocker lazyteam/lazydocker'
+```
+
 ## 在Docker中安装IDS相机驱动
 ```
 $ docker run --name ids2 -h ids2 --privileged -v /tmp/.X11-unix/:/tmp/.X11-unix \
