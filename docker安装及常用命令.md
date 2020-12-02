@@ -107,55 +107,31 @@ sudo docker cp 宿主机目录或文件路径     容器名称:目录
 sudo docker cp 容器名称:目录或文件路径  宿主机目录
 ```
 
-## Docker容器显示图形到宿主机屏幕  
-Docker本身的工作模式是命令行的，但是如果运行在docker中的应用需要显示图形界面如何能实现呢？
-可以通过在宿主机安装xserver，将docker容器视为客户端，通过网络或挂载的方式就可以实现将需要显示的图像显示在宿主机显示器。
-- 网络方式（此方式也可以用于两主机间）
-```shell script
-A.在宿主机
-查看宿主机IP
-$ ifconfig                          ##假设为xxx.xxx.xxx.xx
-查看当前显示的环境变量值
-$ echo $DISPLAY   (要在显示屏查看，其他ssh终端不行)  ##假设为:0
-或通过socket文件分析：
-$ ll /tmp/.X11-unix/                            ##假设为X0= ---> :0
-
-安装xserver
-$ sudo apt install x11-xserver-utils
-$ sudo vim /etc/lightdm/lightdm.conf 
-增加许可网络连接
-[SeatDefaults]
-xserver-allow-tcp=true
-重启xserver
-$ sudo systemctl restart lightdm
-许可所有用户都可访问xserver
-xhost +
-
-
-B.在docker 容器内
-# export DISPLAY=xxx.xxx.xxx.xx:0
-注意：环境变量设置需要每次进docker设置，可以写在：/etc/bash.bashrc 文件中，避免每次进终端时设置
-```
-- 挂载方式  
-挂载方式是在使用image创建docker容器时，通过-v参数设置docker内外路径挂载，
-使显示xserver设备的socket文件在docker内也可以访问。并通过-e参数设置docker内的DISPLAY参数和宿主机一致。  
-
-在宿主机安装xserver
+## [Docker容器显示图形到宿主机屏幕](https://blog.csdn.net/ericcchen/article/details/79253416)  
+Docker本身的工作模式是命令行的，但是如果运行在docker中的应用需要显示图形界面, 该如何能实现呢？
+- 安装xserver
 ```shell script
 $ sudo apt install x11-xserver-utils
 ```
-许可所有用户都可访问xserver
+- 许可所有用户都可访问xserver
 ```shell script
 $ xhost +
 ```
-查看显示器编号
+- 创建并运行docker容器
 ```shell script
-$ echo $DISPLAY   (要在显示屏查看，其他ssh终端不行)  ##假设为:0
-$ sudo docker run -itd --name 容器名 -h 容器主机名 --privileged \
-           -v /tmp/.X11-unix:/tmp/.X11-unix  \
-           -e DISPLAY=:0 镜像名或id /bin/bash
+$ sudo docker create -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
+  -e GDK_SCALE -e GDK_DPI_SCALE --name ubuntu_gui_demo -it ubuntu:20.04 bash 
+$ sudo docker start ubuntu_gui_demo
+$ sudo docker exec -it ubuntu_gui_demo bash
 ```
-参考[https://blog.csdn.net/ericcchen/article/details/79253416](https://blog.csdn.net/ericcchen/article/details/79253416)
+- 测试能否显示图像界面  
+在上面创建的容器中执行如下命令
+```shell script
+# apt update
+# apt install xarclock
+# xarclock
+```
+此时在屏幕上可见一个时钟界面. 
 
 ## Docker使用非root用户
 + 在宿主机上  
