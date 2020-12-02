@@ -119,7 +119,7 @@ $ xhost +
 ```
 - 创建并运行docker容器
 ```shell script
-$ sudo docker create -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
+$ sudo docker create -h HN -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
   -e GDK_SCALE -e GDK_DPI_SCALE --name ubuntu_gui_demo -it ubuntu:20.04 bash 
 $ sudo docker start ubuntu_gui_demo
 $ sudo docker exec -it ubuntu_gui_demo bash
