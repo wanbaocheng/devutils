@@ -453,70 +453,72 @@ trusted-host=mirrors.aliyun.com
 ```
 $ git clone 网址:/root/repos/clion2020.1_crack
 ```
-#### 在工具条上添加Reload CMake Project 和 Reset Cache and Reload Project
-- 鼠标指针放在工具条的空白处点击右键，选择 Customize Menus and Toolbars...
-- 打开Main Toolbar，选择最后一项
-- 选择对话框上部的 +，点击 Add Action...
-- 依次展开 Main menu -> Tools -> CMake
-- 按住Ctrl，选择 Reload CMake Project 和 Reset Cache and Reload Project, 点击底部OK按钮
-### [解决在nvidia xavier平台上安装clion后无法使用local terminal的问题](https://blog.csdn.net/weixin_43710385/article/details/106887908)
-### 配置ros环境
+- 在工具条上添加Reload CMake Project 和 Reset Cache and Reload Project
+  - 鼠标指针放在工具条的空白处点击右键，选择 Customize Menus and Toolbars...
+  - 打开Main Toolbar，选择最后一项
+  - 选择对话框上部的 +，点击 Add Action...
+  - 依次展开 Main menu -> Tools -> CMake
+  - 按住Ctrl，选择 Reload CMake Project 和 Reset Cache and Reload Project, 点击底部OK按钮
+- [解决在nvidia xavier平台上安装clion后无法使用local terminal的问题](https://blog.csdn.net/weixin_43710385/article/details/106887908)
+- 配置ros环境
   - 修改clion快捷方式
-  ```shell script
-  $ vim ~/.local/share/applications/jetbrains-clion.desktop
-  ```
-  ```shell script
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=CLion
-Icon=CLION安装路径/clion-2020.1/bin/clion.svg
-Exec="CLION安装路径/clion-2020.1/bin/clion.sh" %f
-Comment=A cross-platform IDE for C and C++
-Categories=Development;IDE;
-Terminal=false
-StartupWMClass=jetbrains-clion
-  ```
-注意第六行
-```shell script
-Exec="CLION安装路径/clion-2020.1/bin/clion.sh" %f
-```
-修改为
-```shell script
-Exec=bash "CLION安装路径/clion-2020.1/bin/clion.sh" %f
-```
+    ```shell script
+    $ vim ~/.local/share/applications/jetbrains-clion.desktop
+    ```
+    其内容为
+    ```shell script
+    [Desktop Entry]
+    Version=1.0
+    Type=Application
+    Name=CLion
+    Icon=CLION安装路径/clion-2020.1/bin/clion.svg
+    Exec="CLION安装路径/clion-2020.1/bin/clion.sh" %f
+    Comment=A cross-platform IDE for C and C++
+    Categories=Development;IDE;
+    Terminal=false
+    StartupWMClass=jetbrains-clion
+    ```
+    注意第六行
+    ```shell script
+    Exec="CLION安装路径/clion-2020.1/bin/clion.sh" %f
+    ```
+    修改为
+    ```shell script
+    Exec=bash "CLION安装路径/clion-2020.1/bin/clion.sh" %f
+    ```
   - 修改Clion启动文件
-  ```shell script
-  $ vim  CLION安装路径/clion-2020.1/bin/clion.sh
-  ```
-  显示为
-  ```shell script
-......
-# ---------------------------------------------------------------------
-# Run the IDE.
-# ---------------------------------------------------------------------
-IFS="$(printf '\n\t')"
-# shellcheck disable=SC2086
-"$JAVA_BIN" 
-......
-  ```
-在Run the IDE下添加一句
-  ```shell script
-source /opt/ros/melodic/setup.bash  # 与系统安装的ros对应
-  ```
-变为
-  ```shell script
-......
-# ---------------------------------------------------------------------
-# Run the IDE.
-# ---------------------------------------------------------------------
-source /opt/ros/melodic/setup.bash
-IFS="$(printf '\n\t')"
-# shellcheck disable=SC2086
-"$JAVA_BIN" 
-......
-  ```
+    ```shell script
+    $ vim  CLION安装路径/clion-2020.1/bin/clion.sh
+    ```
+    显示为
+    ```shell script
+    ......
+    # ---------------------------------------------------------------------
+    # Run the IDE.
+    # ---------------------------------------------------------------------
+    IFS="$(printf '\n\t')"
+    # shellcheck disable=SC2086
+    "$JAVA_BIN" 
+    ......
+    ```
+    在Run the IDE下添加一句
+    ```shell script
+    source /opt/ros/melodic/setup.bash  # 与系统安装的ros对应
+    ```
+    变为
+    ```shell script
+    ......
+    # ---------------------------------------------------------------------
+    # Run the IDE.
+    # ---------------------------------------------------------------------
+    source /opt/ros/melodic/setup.bash
+    IFS="$(printf '\n\t')"
+    # shellcheck disable=SC2086
+    "$JAVA_BIN" 
+    ......
+    ```
   - 安装ros插件: ROS-Robot-Operating System
+
 ## Visual Studio Code
 到[官网](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)按步骤执行即可，然后可[配置 cmake 的 C++ 项目模板](http://www.pianshen.com/article/8310115346/)。
 
