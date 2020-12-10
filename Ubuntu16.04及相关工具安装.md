@@ -610,17 +610,18 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   ```
 - 运行“squashfs-root/app/staruml”
 
-## [ROS](https://www.ros.org/)
+## [ROS](https://www.ros.org/) 
+  注: 适用Ubuntu 16,Ubuntu 18, ...
 - [安装ROS](https://www.jianshu.com/p/6ae840a94e2f)
-  - 备份原始数据
+  - 创建ubutnu的codename到ros分发名称的关联数组
   ```shell script
-  $ cd /etc/apt/
-  $ sudo cp sources.list sources.list.bak
-  $ sudo gedit sources.list
+  $ declare -A ubuntu_codename2rosdistro=([xenial]=kinetic [bionic]=melodic)
+  $ ubuntu_codename=$(lsb_release -sc)
+  $ rosdistro=${ubuntu_codename2rosdistro[${ubuntu_codename}]}
   ```
   - 添加源
   ```shell script
-  $ sudo sh -c '. /etc/lsb-release && echo "deb https://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main" > /etc/apt/sources.list.d/ros-latest.list'
+  $ sudo sh -c 'echo "deb https://mirrors.ustc.edu.cn/ros/ubuntu/ ${rosdistro} main" > /etc/apt/sources.list.d/ros-latest.list'
   ```
   - 设置密钥
   ```shell script
@@ -632,12 +633,12 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   ```
   注：可能ROS由于公钥更新导致用户该步报错，参见[解决办法](https://blog.csdn.net/asdli/article/details/91978069?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)
   - 安装ROS全功能版
-  ```
-  $ sudo apt install ros-kinetic-desktop-full
-  ```
+    ```
+    $ sudo apt install "ros-${rosdistro}-desktop-full"
+    ```  
   - 查看可使用的包
   ```
-  $ apt-cache search ros-kinetic
+  $ apt-cache search "ros-${rosdistro}"
   ```
   - 安装重要插件（可选）
   ```shell script
@@ -651,7 +652,7 @@ $ ./StarUML-3.0.1-x86_64.AppImage --appimage-extract
   ```
   - 然后初始化环境变量（重要）
   ```
-  $ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+  $ echo "source /opt/ros/${rosdistro}/setup.bash" >> ~/.bashrc
   $ source ~/.bashrc
   ```
 - 测试ROS
