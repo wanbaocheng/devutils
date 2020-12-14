@@ -1,15 +1,20 @@
 ## 安装 Ubuntu系统
-先用Ubuntu系统中的启动盘制作工具制作一个U盘安装盘，然后正常安装即可（比如按F10进入BIOS）。如果安装了多个系统，可能需要指定[引导程序](https://blog.csdn.net/u012986684/article/details/79508694)：
+- 安装  
+  先用Ubuntu系统中的启动盘制作工具制作一个U盘安装盘，然后正常安装即可（比如按F10进入BIOS）。
+- [启动顺序](https://www.cnblogs.com/codeblock/p/4295104.html)
+```shell script
+sudo gedit /etc/default/grub
 ```
-sudo update-grub
-sudo grub-install /dev/sd*
+修改默认启动项所在的位置(启动页面中的系统对应的行序号,从0开始计数), 比如需要默认启动的是第七行的系统, 修改
+```shell script
+GRUB_DEFAULT=6
 ```
-其中 sd* 改为对应的系统所在的分区。  
-注： 在安装ubuntu系统时选择的“其它安装”方式时，安装完成后进入系统，执行
-```
+修改后，保存，然后执行更新
+```shell script
 $ sudo update-grub
 ```
-即可。  
+注意: 修改的是首次安装系统的相应文件.
+- 中文目录改为英文  
 如果需要把[Ubuntu /home下中文目录修改成英文](https://blog.csdn.net/fei2636/article/details/79202102)，可以
 ```
 ```
@@ -27,18 +32,18 @@ $ sudo apt install --reinstall ubuntu-desktop
 $ sudo service lightdm start
 ```
 
-系统进入登录界面，但键盘和鼠标没有反应：
+- 系统进入登录界面，但键盘和鼠标没有反应：
 
-- 进入grub然后选择高级模式进入recover mode
-- 选择 enable network
-- 进入root shell，输入
-```shell script
-$ sudo apt install xserver-xorg-input-all
-```
-- 重启
-```shell script
-$ reboot
-```
+  - 进入grub然后选择高级模式进入recover mode
+  - 选择 enable network
+  - 进入root shell，输入
+  ```shell script
+  $ sudo apt install xserver-xorg-input-all
+  ```
+  - 重启
+  ```shell script
+  $ reboot
+  ```
 - 网络
   - [通过网线共享网络](https://www.cnblogs.com/jiading/p/11989966.html)
     - 首先通过网线将一台有无线网卡、已经连接无线网络的设备和一台需要网络连接的设备相连接
@@ -63,7 +68,17 @@ $ reboot
     $ sudo update-grub
     ```
     重启即可进入grub界面。
-
+- 如果安装了多个系统，可能需要指定[引导程序](https://blog.csdn.net/u012986684/article/details/79508694)：
+```
+sudo update-grub
+sudo grub-install /dev/sd*
+```
+其中 sd* 改为对应的系统所在的分区。  
+注： 在安装ubuntu系统时选择的“其它安装”方式时，安装完成后进入系统，执行
+```
+$ sudo update-grub
+```
+即可。
 
 # 添加用户和修改hostname
 - 以root用户进入终端
