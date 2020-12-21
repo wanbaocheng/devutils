@@ -1164,6 +1164,8 @@ $ brew install tmux
   $ sudo apt-get install texmaker
   ```
 
+## [汇编语言开发 linux 开发环境配置](https://juejin.cn/post/6872919876135518215)
+
 ## Latex参考资源   
    - [LaTeX 实战经验：新手须知](https://blog.csdn.net/simple_the_best/article/details/51244631)
  
