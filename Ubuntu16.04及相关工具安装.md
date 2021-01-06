@@ -533,7 +533,7 @@ $ git clone 网址:/root/repos/clion2020.1_crack
     ```
   - 安装ros插件: ROS-Robot-Operating System
 - Makefile项目
-  - 安装针对Clion的Makefile support插件
+  - 安装CLion的Makefile support插件
   - 安装compiledb
   ```shell script
   $ pip install compiledb
@@ -545,6 +545,21 @@ $ git clone 网址:/root/repos/clion2020.1_crack
   ```
   - 打开项目  
   打开CLion IDE, 然后点击 File->Open, 在对话框中选择compile_commands.json, 点击"Open as Project"按钮 
+  - 安装CLion的File Watchers插件
+  - 生成 Makefile Watcher  
+  用于实时监控Makefile文件. 选择 File->Settings...->Tools->File Watchers, 点击右侧的"+", 选择 "custom", 在对话框的条目中输入
+  
+  | 名称  | 值    |
+  |  ---- | ---- |
+  | Name:                    | Makefile Watcher |
+  | File type:               | GNU Makefile     |
+  | Scope:                   | All Places       |
+  | Program:                 | compiledb        |
+  | Arguments:               | -n make          |
+  | Output paths to refresh: | $FileDir$        |
+  
+  点击"OK"按钮.
+  
 
 ## Visual Studio Code
 到[官网](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)按步骤执行即可，然后可[配置 cmake 的 C++ 项目模板](http://www.pianshen.com/article/8310115346/)。
