@@ -532,6 +532,19 @@ $ git clone 网址:/root/repos/clion2020.1_crack
     ......
     ```
   - 安装ros插件: ROS-Robot-Operating System
+- Makefile项目
+  - 安装针对Clion的Makefile support插件
+  - 安装compiledb
+  ```shell script
+  $ pip install compiledb
+  ```
+  - 生成compile_commands.json文件
+  改变当前目录至项目的Makefile文件所在的目录, 然后执行
+  ```shell script
+  $ compiledb -n make
+  ```
+  - 打开项目  
+  打开CLion IDE, 然后点击 File->Open, 在对话框中选择compile_commands.json, 点击"Open as Project"按钮 
 
 ## Visual Studio Code
 到[官网](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)按步骤执行即可，然后可[配置 cmake 的 C++ 项目模板](http://www.pianshen.com/article/8310115346/)。
