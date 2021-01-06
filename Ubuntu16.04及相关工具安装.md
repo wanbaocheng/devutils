@@ -549,16 +549,15 @@ $ git clone 网址:/root/repos/clion2020.1_crack
   - 生成 Makefile Watcher  
   用于实时监控Makefile文件. 选择 File->Settings...->Tools->File Watchers, 点击右侧的"+", 选择 "custom", 在对话框的条目中输入
   
-  | 名称  | 值    |
-  |  ---- | ---- |
-  | Name:                    | Makefile Watcher |
-  | File type:               | GNU Makefile     |
-  | Scope:                   | All Places       |
-  | Program:                 | compiledb        |
-  | Arguments:               | -n make          |
-  | Output paths to refresh: | $FileDir$        |
-  
-  点击"OK"按钮.
+      | 名称  | 值    |
+      |  ---- | ---- |
+      | Name:                    | Makefile Watcher |
+      | File type:               | GNU Makefile     |
+      | Scope:                   | All Places       |
+      | Program:                 | compiledb        |
+      | Arguments:               | -n make          |
+      | Output paths to refresh: | $FileDir$        |
+      点击"OK"按钮.
   
 
 ## Visual Studio Code
