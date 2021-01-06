@@ -557,6 +557,7 @@ $ git clone 网址:/root/repos/clion2020.1_crack
       | Program:                 | compiledb        |
       | Arguments:               | -n make          |
       | Output paths to refresh: | $FileDir$        |
+      
       点击"OK"按钮.
   
 
